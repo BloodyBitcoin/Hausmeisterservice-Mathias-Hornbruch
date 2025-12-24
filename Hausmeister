@@ -110,11 +110,12 @@ h1,h2{
   <div class="hm-logo-box">
     <div class="hm-logo-border"></div>
 
-    <img 
+    <img
+  <img
   src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/78ABD3F8-E475-41CD-B1B2-E49196B8C291.png"
-  alt="Hausmeisterservice Mathias Hornbruch Logo"
-  style="max-width: 300px; width: 90%; display:block; margin: 20px auto;"
->
+  alt="Hausmeisterservice Mathias Hornbruch"
+  style="max-width: 300px; width: 90%; height: auto;"
+/>
   </div>
 </section>
 
