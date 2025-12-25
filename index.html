@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Hausmeisterservice Mathias Hornbruch</title>
@@ -26,47 +27,36 @@ body{
 
 .hm-logo-box{
   display:inline-block;
-  padding:20px 25px 30px;
+  padding:25px 28px 36px;
   background:white;
-  border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,.12);
+  border-radius:16px;
+  box-shadow:0 12px 35px rgba(0,0,0,.15);
   position:relative;
 }
 
-/* ⭐ animierte, flüssige Glanz-Linie */
+/* animierte glühende Linie */
 
 .hm-shine-line{
   position:absolute;
-  bottom:8px;
-  left:10px;
-  right:10px;
-  height:4px;
+  bottom:10px;
+  left:12px;
+  right:12px;
+  height:5px;
   border-radius:3px;
 
-  background:linear-gradient(
-    90deg,
+  background:linear-gradient(90deg,
     rgba(0,150,255,0) 0%,
-    rgba(0,150,255,1) 40%,
-    rgba(0,150,255,0) 80%
+    rgba(0,150,255,0.9) 50%,
+    rgba(0,150,255,0) 100%
   );
 
-  background-size:200% 100%;
-  animation:shine 3.5s ease-in-out infinite;
+  animation:shine 2.2s ease-in-out infinite;
 }
 
 @keyframes shine{
-  0%{
-    background-position:0% 0;
-    opacity:.4;
-  }
-  50%{
-    background-position:100% 0;
-    opacity:1;
-  }
-  100%{
-    background-position:0% 0;
-    opacity:.4;
-  }
+  0%{opacity:.05; transform:scaleX(.4);}
+  50%{opacity:1; transform:scaleX(1);}
+  100%{opacity:.05; transform:scaleX(.4);}
 }
 
 /* ===== Text ===== */
@@ -74,6 +64,62 @@ body{
 h1{
   margin-top:25px;
 }
+
+/* ===== Kontakt ===== */
+
+.contact{
+  margin:60px auto 40px;
+  max-width:600px;
+  padding:20px;
+}
+
+.contact h2{
+  margin-bottom:8px;
+}
+
+.call-button{
+  display:inline-block;
+  margin:15px 0 25px;
+  background:#2f7bff;
+  color:#fff;
+  text-decoration:none;
+  padding:14px 26px;
+  border-radius:10px;
+  font-size:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.18);
+}
+
+.call-button:hover{
+  background:#1f63d9;
+}
+
+.opening-box{
+  background:#fff;
+  border-radius:12px;
+  padding:18px 20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  text-align:left;
+}
+
+.opening-box h3{
+  margin-top:0;
+}
+
+.opening-box ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.opening-box li{
+  padding:6px 0;
+  border-bottom:1px solid #ececec;
+}
+
+.opening-box li:last-child{
+  border-bottom:none;
+}
+
 
 /* ===== Footer / Impressum ===== */
 
@@ -98,8 +144,8 @@ footer button:hover{
 }
 
 </style>
-</head>
 
+</head>
 
 <body>
 
@@ -109,12 +155,14 @@ footer button:hover{
 
   <div class="hm-logo-box">
 
+      <!-- Bild -->
       <img 
         src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/main/78ABD3F8-E475-41CD-B1B2-E49196B8C291.png?raw=1"
         alt="Hausmeisterservice Mathias Hornbruch Logo"
         style="max-width:420px; width:100%; height:auto;"
       >
 
+      <!-- animierte Linie -->
       <div class="hm-shine-line"></div>
 
   </div>
@@ -125,7 +173,39 @@ footer button:hover{
 <h1>Website im Aufbau</h1>
 
 
+<!-- ===== KONTAKT ===== -->
+
+<section class="contact">
+
+  <h2>Kontakt</h2>
+
+  <p>
+    Bei Fragen oder Interesse – wir freuen uns auf Ihren Anruf.
+  </p>
+
+  <!-- Telefonnummer -->
+  <a class="call-button" href="tel:01602556936">
+    📞 Jetzt anrufen
+  </a>
+
+  <!-- Öffnungszeiten -->
+  <div class="opening-box">
+
+    <h3>Öffnungszeiten</h3>
+
+    <ul>
+      <li><strong>Mo – Fr:</strong> 07:00 – 17:00 Uhr</li>
+      <li><strong>Sa:</strong> 09:00 – 13:00 Uhr</li>
+      <li><strong>So:</strong> Geschlossen</li>
+    </ul>
+
+  </div>
+
+</section>
+
+
 <!-- ===== FOOTER ===== -->
+
 <footer>
   <button>Impressum</button>
 </footer>
