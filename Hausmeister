@@ -97,10 +97,11 @@ footer button:hover{
   <div class="hm-logo-box">
 
       <!-- Bild -->
-<img src="logo.png"
-     alt="Hausmeisterservice Mathias Hornbruch Logo"
-     style="max-width:420px; width:100%; height:auto;">
-
+<img 
+  src="78ABD3F8-E475-41CD-B1B2-E49196B8C291.png"
+  alt="Hausmeisterservice Mathias Hornbruch Logo"
+  style="max-width:420px; width:100%; height:auto;"
+>
       <!-- animierte Linie -->
       <div class="hm-shine-line"></div>
 
