@@ -2,107 +2,119 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>Hausmeisterservice Mathias Hornbruch</title>
 
 <style>
 
+/* ======= Grundlayout ======= */
+
 body{
   margin:0;
   font-family: Arial, Helvetica, sans-serif;
-  background:#f4f6fb;
-  color:#0c1b2e;
+  background:#f5f6fa;
+  color:#0c1b2d;
+  text-align:center;
 }
 
-/* --- LOGO BEREICH --- */
+/* ===== Logo Bereich ===== */
+
 .logo-hero{
-  padding:60px 10px 40px;
-  text-align:center;
+  padding:40px 10px;
 }
 
 .hm-logo-box{
   display:inline-block;
-  position:relative;
-  padding:25px 25px 30px;
-}
-
-/* LEUCHTENDE / ANIMIERTE LINIE */
-.hm-logo-border{
-  position:absolute;
-  inset:0;
-  border-radius:20px;
-  background: linear-gradient(120deg,#4cb7ff,#0066ff,#00d4ff,#4cb7ff);
-  opacity:.9;
-  filter: blur(6px);
-  animation: glowmove 3.5s linear infinite;
-}
-
-/* Innenbereich */
-.hm-logo-inner{
-  position:relative;
+  padding:20px 25px 30px;
   background:white;
   border-radius:14px;
-  padding:22px 18px;
-  box-shadow:0 12px 32px rgba(0,0,0,.12);
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
+  position:relative;
 }
 
-/* ANIMATION */
-@keyframes glowmove{
-  0% { filter: blur(6px) brightness(1); }
-  50% { filter: blur(12px) brightness(1.7); }
-  100% { filter: blur(6px) brightness(1); }
+/* animierte glühende Linie */
+
+.hm-shine-line{
+  position:absolute;
+  bottom:8px;
+  left:10px;
+  right:10px;
+  height:4px;
+  border-radius:2px;
+  background:linear-gradient(90deg,
+    rgba(0,150,255,0) 0%,
+    rgba(0,150,255,1) 50%,
+    rgba(0,150,255,0) 100%);
+  animation:shine 2.5s linear infinite;
 }
 
-/* Inhalt */
-.section{
-  padding:25px 15px 100px;
-  text-align:center;
+@keyframes shine{
+  0%{opacity:.1; transform:scaleX(.4);}
+  50%{opacity:1; transform:scaleX(1);}
+  100%{opacity:.1; transform:scaleX(.4);}
 }
+
+/* ===== Text ===== */
+
+h1{
+  margin-top:25px;
+}
+
+/* ===== Footer / Impressum ===== */
 
 footer{
-  background:#071427;
-  color:#cfdaf8;
-  text-align:center;
-  padding:25px;
+  margin-top:80px;
+  background:#081529;
+  padding:40px 0;
 }
 
 footer button{
-  background:none;
-  color:#cfdaf8;
-  border:1px solid #2a5fff;
+  background:transparent;
+  border:2px solid #2f7bff;
+  color:white;
+  padding:10px 26px;
   border-radius:10px;
-  padding:10px 22px;
-  font-size:16px;
+  font-size:18px;
+}
+
+footer button:hover{
+  background:#2f7bff;
+  cursor:pointer;
 }
 
 </style>
+
 </head>
 
 <body>
 
+<!-- ===== LOGO ===== -->
+
 <section class="logo-hero">
 
   <div class="hm-logo-box">
-      <div class="hm-logo-border"></div>
 
-      <div class="hm-logo-inner">
+      <!-- Bild -->
+      <img 
+        src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/main/78ABD3F8-E475-41CD-B1B2-E49196B8C291.png"
+        alt="Hausmeisterservice Mathias Hornbruch Logo"
+        style="max-width:420px; width:100%; height:auto;"
+      >
 
-          <img
-            src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/78ABD3F8-E475-41CD-B1B2-E49196B8C291.png"
-            alt="Hausmeisterservice Mathias Hornbruch Logo"
-            style="max-width:420px; width:100%; height:auto;"
-          />
+      <!-- animierte Linie -->
+      <div class="hm-shine-line"></div>
 
-      </div>
   </div>
 
 </section>
 
-<section class="section">
-  <h2>Website im Aufbau</h2>
-  <p>Wir kümmern uns bald um alles rund ums Haus.</p>
-</section>
 
+<h1>Website im Aufbau</h1>
+
+
+<!-- ===== FOOTER ===== -->
 <footer>
   <button>Impressum</button>
 </footer>
