@@ -538,3 +538,161 @@ setInterval(()=>{
   line-height:1.5;
 }
 </style>
+<!-- ====================== -->
+<!--     BILDER SLIDESHOW   -->
+<!-- ====================== -->
+
+<section class="work-slider">
+
+  <h2>📸 Einblicke in unsere Arbeit</h2>
+
+  <div class="slider">
+
+    <div class="slides">
+
+      <img src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/IMG_1205.jpeg">
+      <img src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/IMG_1202.jpeg">
+      <img src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/IMG_1203.jpeg">
+      <img src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/temp_image_23ACEEDA-BBAE-4496-A5E3-F5560615FED5.webp">
+      <img src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/temp_image_A9EA4D43-494D-485E-9190-D83C1DB4F531.webp">
+      <img src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/temp_image_FD639DFA-516E-4C9E-BC23-EA718E81477F.webp">
+      <img src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/temp_image_3E89B6B7-C446-4CB1-B688-44CED75FA6D2.webp">
+      <img src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/IMG_1214.jpeg">
+      <img src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/IMG_1215.jpeg">
+      <img src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/IMG_1216.jpeg">
+
+    </div>
+
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+
+  </div>
+
+</section>
+
+<style>
+/* Hintergrund – dunkel, ruhig, leicht lebendig */
+.work-slider{
+  padding:70px 15px 90px;
+  text-align:center;
+  background:radial-gradient(ellipse at top, #1a1f27, #0d1116);
+  position:relative;
+  overflow:hidden;
+}
+
+.work-slider::before{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:radial-gradient(circle,
+    rgba(30,120,255,.25),
+    transparent 60%);
+  animation:pulse 7s ease-in-out infinite;
+}
+
+@keyframes pulse{
+  0%{ opacity:.2 }
+  50%{ opacity:.55 }
+  100%{ opacity:.2 }
+}
+
+.work-slider h2{
+  color:white;
+  margin-bottom:25px;
+}
+
+/* Slider */
+.slider{
+  max-width:900px;
+  margin:0 auto;
+  position:relative;
+}
+
+.slides{
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  box-shadow:0 25px 55px rgba(0,0,0,.65);
+}
+
+.slides img{
+  width:100%;
+  display:none;
+  object-fit:cover;
+}
+
+.slides img.active{
+  display:block;
+}
+
+/* Pfeile */
+.prev,
+.next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.35);
+  color:white;
+  font-size:28px;
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  backdrop-filter:blur(6px);
+}
+
+.prev:hover,
+.next:hover{
+  background:rgba(255,255,255,.25);
+}
+
+.prev{ left:-15px; }
+.next{ right:-15px; }
+
+@media (max-width:700px){
+  .prev{ left:6px; }
+  .next{ right:6px; }
+}
+</style>
+
+<script>
+const slideImages = document.querySelectorAll(".slides img");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+let current = 0;
+
+function showSlide(i){
+  slideImages.forEach(img=>img.classList.remove("active"));
+  slideImages[i].classList.add("active");
+}
+
+showSlide(current);
+
+nextBtn.addEventListener("click", ()=>{
+  current = (current + 1) % slideImages.length;
+  showSlide(current);
+});
+
+prevBtn.addEventListener("click", ()=>{
+  current = (current - 1 + slideImages.length) % slideImages.length;
+  showSlide(current);
+});
+
+/* Wischen (Handy) */
+let startX = 0;
+const slideArea = document.querySelector(".slides");
+
+slideArea.addEventListener("touchstart", e=>{
+  startX = e.touches[0].clientX;
+});
+
+slideArea.addEventListener("touchend", e=>{
+  let endX = e.changedTouches[0].clientX;
+  if(endX < startX - 40) nextBtn.click();
+  if(endX > startX + 40) prevBtn.click();
+});
+</script>
