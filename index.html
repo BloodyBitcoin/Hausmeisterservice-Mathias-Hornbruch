@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hausmeisterservice Mathias Hornbruch</title>
 
 <style>
+
+/* ========= Grundlayout ========= */
+
 body{
   margin:0;
   font-family: Arial, Helvetica, sans-serif;
@@ -15,125 +17,160 @@ body{
   text-align:center;
 }
 
-/* ================= LOGO ================== */
+/* ========= Logo ========= */
 
 .logo-hero{
-  padding:35px 10px 10px;
+  padding:40px 10px;
 }
 
 .hm-logo-box{
   display:inline-block;
-  padding:20px 26px 30px;
+  padding:20px 25px 30px;
   background:white;
-  border-radius:16px;
-  box-shadow:0 18px 45px rgba(0,0,0,.16);
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
   position:relative;
 }
 
+/* animierte Linie */
 .hm-shine-line{
   position:absolute;
   bottom:8px;
   left:10px;
   right:10px;
-  height:5px;
-  border-radius:3px;
+  height:4px;
+  border-radius:2px;
   background:linear-gradient(90deg,
-    rgba(0,150,255,0),
-    rgba(0,150,255,1),
-    rgba(0,150,255,0)
-  );
-  animation:shine 2.5s ease-in-out infinite;
+    rgba(0,150,255,0) 0%,
+    rgba(0,150,255,1) 50%,
+    rgba(0,150,255,0) 100%);
+  animation:shine 2.5s linear infinite;
 }
 
 @keyframes shine{
-  0%{opacity:.15; transform:scaleX(.4);}
+  0%{opacity:.1; transform:scaleX(.4);}
   50%{opacity:1; transform:scaleX(1);}
-  100%{opacity:.15; transform:scaleX(.4);}
+  100%{opacity:.1; transform:scaleX(.4);}
 }
 
-/* ================= BEWERTUNGEN ================== */
-
-.review-section{
-  margin:25px auto 10px;
-  width:92%;
-  max-width:900px;
-}
+/* ========= Bewertungen ========= */
 
 .review-box{
+  margin:25px auto 35px;
+  width:92%;
+  max-width:900px;
   background:white;
-  border-radius:18px;
-  padding:22px 16px 26px;
-  box-shadow:0 15px 38px rgba(0,0,0,.12);
-  min-height:150px;
+  border-radius:16px;
+  padding:18px 14px 22px;
+  box-shadow:0 12px 35px rgba(0,0,0,.12);
 }
 
-.stars{
+.review-stars{
   font-size:30px;
-  color:#ffb000;
 }
 
 .review-text{
-  margin-top:10px;
   font-style:italic;
-  font-size:18px;
+  margin-top:10px;
 }
 
-.review-name{
-  margin-top:6px;
-  color:#2e3b4f;
+.review-author{
+  margin-top:10px;
+  color:#444;
+  font-size:14px;
 }
 
-/* ================= KONTAKT ================== */
+/* Slider Animation */
+@keyframes fadeReview{
+  0%{opacity:0;}
+  10%{opacity:1;}
+  90%{opacity:1;}
+  100%{opacity:0;}
+}
 
-.section-title{
-  margin-top:32px;
-  font-size:30px;
+.review{
+  display:none;
+  animation:fadeReview 6s linear;
+}
+
+.review.active{
+  display:block;
+}
+
+/* ========= Kontakt ========= */
+
+section{
+  width:92%;
+  max-width:900px;
+  margin:0 auto;
 }
 
 .call-btn{
+  margin-top:18px;
   display:inline-block;
-  margin-top:16px;
-  background:#2568ff;
+  padding:14px 28px;
+  font-size:20px;
+  border-radius:14px;
+  background:#1f6dff;
   color:white;
-  padding:12px 26px;
-  font-size:18px;
-  border-radius:12px;
   text-decoration:none;
-  box-shadow:0 14px 34px rgba(37,104,255,.35);
+  box-shadow:0 10px 30px rgba(0,0,0,.22);
 }
 
-/* ================= ÖFFNUNGSZEITEN ================== */
+/* ========= Öffnungszeiten ========= */
 
-.hours{
-  width:92%;
-  max-width:900px;
-  margin:30px auto;
+.hours-box{
+  margin-top:35px;
+  margin-bottom:40px;
   background:white;
   border-radius:18px;
-  padding:20px 18px 24px;
+  padding:22px 20px;
   text-align:left;
   box-shadow:0 15px 40px rgba(0,0,0,.12);
 }
 
-/* ================= LEISTUNGEN ================== */
+/* ========= LEISTUNGEN (Handwerker Style) ========= */
 
 .services{
   width:92%;
   max-width:900px;
-  margin:20px auto 70px;
+  margin:25px auto 80px;
 }
 
 .service-card{
-  margin:16px 0;
-  padding:20px 16px 22px;
+  margin:18px 0;
+  padding:22px 18px 26px;
   border-radius:18px;
-  background:linear-gradient(145deg,#ffffff,#eef4ff);
-  box-shadow:10px 10px 25px rgba(0,0,0,.12);
+
+  background:linear-gradient(145deg,#2d3742,#1d242c);
+  color:white;
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,.35),
+    inset 0 0 0 2px rgba(255,255,255,.06);
+
   position:relative;
   overflow:hidden;
 }
 
-/* Schimmer für Handy UND PC */
+/* gelb-schwarzer Handwerkerstreifen */
+.service-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:10px;
+  background:repeating-linear-gradient(
+    45deg,
+    #ffcc00,
+    #ffcc00 14px,
+    #222 14px,
+    #222 28px
+  );
+}
+
+/* Schimmer */
 .service-card::after{
   content:"";
   position:absolute;
@@ -144,155 +181,185 @@ body{
   background:linear-gradient(
     120deg,
     transparent,
-    rgba(255,255,255,.6),
+    rgba(255,255,255,.18),
     transparent
   );
-  animation:cardShine 4.5s infinite;
+  animation:cardShine 5s infinite;
 }
 
 @keyframes cardShine{
-  0%{left:-60%;}
-  60%{left:120%;}
-  100%{left:120%;}
+  0%{transform:translateX(0);}
+  100%{transform:translateX(260%);}
 }
 
-.service-card h3{
-  margin-top:0;
+.service-emoji{
+  font-size:42px;
+  margin-top:12px;
 }
 
-/* ================= FOOTER ================== */
+.service-text{
+  margin-top:14px;
+  font-size:16px;
+  color:#e6ecf5;
+  line-height:1.45;
+}
+
+/* ========= Footer ========= */
 
 footer{
-  padding:40px 0 70px;
+  margin-top:60px;
+  background:#081529;
+  padding:35px 0;
+  color:white;
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- ================= LOGO ================= -->
+<!-- ========= LOGO ========= -->
+
 <section class="logo-hero">
   <div class="hm-logo-box">
-    <img
+    <img 
       src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/main/78ABD3F8-E475-41CD-B1B2-E49196B8C291.png?raw=1"
-      style="max-width:420px;width:100%;height:auto;"
-      alt="Hausmeisterservice Mathias Hornbruch">
+      alt="Hausmeisterservice Mathias Hornbruch Logo"
+      style="max-width:420px; width:100%; height:auto;"
+    >
     <div class="hm-shine-line"></div>
   </div>
 </section>
 
 
-<!-- ================= BEWERTUNGEN ================= -->
-<section class="review-section">
-  <div class="review-box">
-    <div id="reviewStars" class="stars">★★★★★</div>
-    <div id="reviewText" class="review-text"></div>
-    <div id="reviewName" class="review-name"></div>
+<!-- ========= BEWERTUNGEN ========= -->
+
+<div class="review-box">
+
+  <div class="review active">
+    <div class="review-stars">★★★★★</div>
+    <div class="review-text">„Kompetente Beratung – wir fühlten uns gut aufgehoben.“</div>
+    <div class="review-author">– Herr Richter</div>
   </div>
-</section>
+
+  <div class="review">
+    <div class="review-stars">★★★★☆</div>
+    <div class="review-text">„Zuverlässig, freundlich und schnell — gerne wieder.“</div>
+    <div class="review-author">– Familie Schmidt</div>
+  </div>
+
+</div>
 
 <script>
-const reviews = [
-  ["★★★★★","„Kompetente Beratung – wir fühlten uns gut aufgehoben.“","Herr Richter"],
-  ["★★★★★","„Sehr zuverlässig und freundlich — absolut empfehlenswert.“","Familie Krüger"],
-  ["★★★★☆","„Entrümpelung sauber & fair erledigt.“","Frau Dorn"],
-  ["★★★★★","„Umzug perfekt organisiert — stressfrei!“","Frau Albrecht"],
-  ["★★★★★","„Notdienst kam sofort – Problem gelöst.“","Herr Müller"],
-  ["★★★★★","„Alles aus einer Hand — super Service!“","Hausverwaltung"]
-];
-
-let rIndex = 0;
-function rotateReviews(){
-  const [s,t,n] = reviews[rIndex];
-  document.getElementById("reviewStars").innerText = s;
-  document.getElementById("reviewText").innerText = t;
-  document.getElementById("reviewName").innerText = "– "+n;
-  rIndex = (rIndex+1) % reviews.length;
-}
-rotateReviews();
-setInterval(rotateReviews, 4000);
+let reviews = document.querySelectorAll(".review");
+let i = 0;
+setInterval(()=>{
+  reviews[i].classList.remove("active");
+  i = (i + 1) % reviews.length;
+  reviews[i].classList.add("active");
+}, 6000);
 </script>
 
 
-<!-- ================= KONTAKT ================= -->
-<h2 class="section-title">Kontakt</h2>
+<!-- ========= KONTAKT ========= -->
 
-<p>Bei Fragen oder Interesse — wir freuen uns auf Ihren Anruf.</p>
+<h2>Kontakt</h2>
+<p>Bei Fragen oder Interesse – wir freuen uns auf Ihren Anruf.</p>
 
 <a class="call-btn" href="tel:01602556936">📞 Jetzt anrufen</a>
 
 
-<!-- ================= ÖFFNUNGSZEITEN ================= -->
-<div class="hours">
-  <h3>Öffnungszeiten</h3>
-  <p><strong>Mo – Fr:</strong> 07:00 – 17:00 Uhr</p>
-  <p><strong>Sa:</strong> 09:00 – 13:00 Uhr</p>
-  <p><strong>So:</strong> Geschlossen</p>
+<!-- ========= ÖFFNUNGSZEITEN ========= -->
+
+<div class="hours-box">
+  <h2>Öffnungszeiten</h2>
+
+  <p><b>Mo – Fr:</b> 07:00 – 17:00 Uhr</p>
+  <p><b>Sa:</b> 09:00 – 13:00 Uhr</p>
+  <p><b>So:</b> Geschlossen</p>
 </div>
 
 
-<!-- ================= LEISTUNGEN ================= -->
+<!-- ========= LEISTUNGEN ========= -->
+
 <section class="services">
 
   <div class="service-card">
-    <h3>🏠 Hausmeisterservice</h3>
-    Rundum-Betreuung von Objekten & Anlagen.
+    <div class="service-emoji">🏠</div>
+    <div class="service-text">
+      Hausmeisterservice — Pflege, Kontrolle & Betreuung von Objekten.
+    </div>
   </div>
 
   <div class="service-card">
-    <h3>🌿 Gartenpflege</h3>
-    Rasen mähen, Hecke schneiden, Pflege der Außenanlagen.
+    <div class="service-emoji">🌿</div>
+    <div class="service-text">
+      Gartenpflege — Rasen, Hecken, Außenanlagen.
+    </div>
   </div>
 
   <div class="service-card">
-    <h3>🌳 Gartenbau & Zäune setzen</h3>
-    Gestaltung, Beete, Wege & Zaunmontage.
+    <div class="service-emoji">🌳</div>
+    <div class="service-text">
+      Gartenbau & Zäune — Aufbau, Reparatur & Gestaltung.
+    </div>
   </div>
 
   <div class="service-card">
-    <h3>🌲 Bäume schneiden & Heckenschnitt</h3>
-    Fachgerechter Rückschnitt inkl. Entsorgung.
+    <div class="service-emoji">🧺</div>
+    <div class="service-text">
+      Entrümpelung jeder Art — privat & gewerblich.
+    </div>
   </div>
 
   <div class="service-card">
-    <h3>🧺 Entrümpelung jeder Art</h3>
-    Wohnungen, Keller, Dachböden, Garagen, Firmen.
+    <div class="service-emoji">🚛</div>
+    <div class="service-text">
+      Entsorgung — Müll & Sperrmüll, fachgerecht & zuverlässig.
+    </div>
   </div>
 
   <div class="service-card">
-    <h3>🚛 Entsorgung jeder Art von Müll</h3>
-    Fachgerecht, sicher & umweltbewusst.
+    <div class="service-emoji">♻️</div>
+    <div class="service-text">
+      Ankauf von Schrott — Abholung möglich.
+    </div>
   </div>
 
   <div class="service-card">
-    <h3>♻️ Ankauf von Schrott</h3>
-    Abholung & faire Vergütung möglich.
+    <div class="service-emoji">🔥</div>
+    <div class="service-text">
+      Verkauf von Brennholz — Lieferung auf Wunsch.
+    </div>
   </div>
 
   <div class="service-card">
-    <h3>🔥 Verkauf von Brennholz</h3>
-    Trockenes Brennholz — Lieferung auf Wunsch.
+    <div class="service-emoji">🚽</div>
+    <div class="service-text">
+      Notdienst — verstopfte Toilette & Abflussprobleme.
+    </div>
   </div>
 
   <div class="service-card">
-    <h3>🚽 Notdienst — Verstopfte Toilette</h3>
-    Schnelle Hilfe bei akuten Problemen.
+    <div class="service-emoji">🧹</div>
+    <div class="service-text">
+      Treppenhaus-Reinigung — sauber & zuverlässig.
+    </div>
   </div>
 
   <div class="service-card">
-    <h3>🧹 Treppenhaus-Reinigung</h3>
-    Sauberkeit in Mehrfamilienhäusern & Objekten.
-  </div>
-
-  <div class="service-card">
-    <h3>🚚 Umzüge deutschlandweit</h3>
-    Planung, Transport & Aufbau am neuen Ort.
+    <div class="service-emoji">🚚</div>
+    <div class="service-text">
+      Umzüge deutschlandweit — Planung, Transport & Aufbau.
+    </div>
   </div>
 
 </section>
 
 
-<footer></footer>
+<footer>
+  Hausmeisterservice Mathias Hornbruch
+</footer>
 
 </body>
 </html>
