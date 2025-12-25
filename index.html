@@ -1,365 +1,298 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Hausmeisterservice Mathias Hornbruch</title>
 
 <style>
-
-/* ===== Grundlayout ===== */
 body{
   margin:0;
   font-family: Arial, Helvetica, sans-serif;
-  background:#f0f4ff;
-  color:#081529;
+  background:#f5f6fa;
+  color:#0c1b2d;
   text-align:center;
 }
 
-/* ===== Logo Bereich ===== */
+/* ================= LOGO ================== */
+
 .logo-hero{
-  padding:40px 10px 10px;
+  padding:35px 10px 10px;
 }
 
 .hm-logo-box{
   display:inline-block;
-  padding:25px 25px 40px;
+  padding:20px 26px 30px;
   background:white;
   border-radius:16px;
-  box-shadow:0 15px 40px rgba(0,0,0,.18);
+  box-shadow:0 18px 45px rgba(0,0,0,.16);
   position:relative;
 }
 
 .hm-shine-line{
   position:absolute;
-  bottom:10px;
+  bottom:8px;
   left:10px;
   right:10px;
   height:5px;
   border-radius:3px;
   background:linear-gradient(90deg,
     rgba(0,150,255,0),
-    rgba(0,150,255,.9),
+    rgba(0,150,255,1),
     rgba(0,150,255,0)
   );
-  animation:shine 2.6s ease-in-out infinite;
+  animation:shine 2.5s ease-in-out infinite;
 }
 
 @keyframes shine{
-  0%{opacity:.1; transform:scaleX(.4);}
+  0%{opacity:.15; transform:scaleX(.4);}
   50%{opacity:1; transform:scaleX(1);}
-  100%{opacity:.1; transform:scaleX(.4);}
+  100%{opacity:.15; transform:scaleX(.4);}
 }
 
-/* ===== Bewertungen Slider ===== */
-.reviews{
-  margin:35px auto 35px;
-  padding:10px 14px 28px;
+/* ================= BEWERTUNGEN ================== */
+
+.review-section{
+  margin:25px auto 10px;
+  width:92%;
   max-width:900px;
 }
 
 .review-box{
   background:white;
   border-radius:18px;
-  padding:25px 16px 28px;
-  margin:0 auto;
-  max-width:800px;
-  box-shadow:0 15px 40px rgba(0,0,0,.15);
-  min-height:135px;
+  padding:22px 16px 26px;
+  box-shadow:0 15px 38px rgba(0,0,0,.12);
+  min-height:150px;
 }
 
 .stars{
   font-size:30px;
-  margin-bottom:10px;
+  color:#ffb000;
 }
 
 .review-text{
+  margin-top:10px;
   font-style:italic;
-  color:#243247;
-}
-
-.review-author{
-  margin-top:6px;
-  font-size:15px;
-  color:#516178;
-}
-
-@keyframes fadeSlide{
-  0%{opacity:0; transform:translateY(15px);}
-  100%{opacity:1; transform:translateY(0);}
-}
-
-/* ===== Kontakt ===== */
-.contact{
-  padding:30px 10px 20px;
-}
-
-.contact p{
-  max-width:780px;
-  margin:8px auto 22px;
-}
-
-.call-button{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:14px 26px;
   font-size:18px;
-  border-radius:14px;
-  border:none;
-  background:#1b5cff;
+}
+
+.review-name{
+  margin-top:6px;
+  color:#2e3b4f;
+}
+
+/* ================= KONTAKT ================== */
+
+.section-title{
+  margin-top:32px;
+  font-size:30px;
+}
+
+.call-btn{
+  display:inline-block;
+  margin-top:16px;
+  background:#2568ff;
   color:white;
-  box-shadow:0 15px 28px rgba(0,65,255,.35);
-  cursor:pointer;
+  padding:12px 26px;
+  font-size:18px;
+  border-radius:12px;
+  text-decoration:none;
+  box-shadow:0 14px 34px rgba(37,104,255,.35);
 }
 
-.call-button:hover{
-  transform:translateY(-2px);
-}
+/* ================= ÖFFNUNGSZEITEN ================== */
 
-/* ===== Öffnungszeiten ===== */
 .hours{
-  margin:30px auto 40px;
+  width:92%;
   max-width:900px;
+  margin:30px auto;
   background:white;
-  padding:22px 20px 30px;
   border-radius:18px;
-  box-shadow:0 15px 40px rgba(0,0,0,.15);
+  padding:20px 18px 24px;
   text-align:left;
+  box-shadow:0 15px 40px rgba(0,0,0,.12);
 }
 
-.hours h3{
-  margin-top:0;
-}
+/* ================= LEISTUNGEN ================== */
 
-.hours-row{
-  display:flex;
-  justify-content:space-between;
-  margin:6px 0;
-}
-
-/* ===== Dienstleistungen ===== */
 .services{
-  padding:45px 16px 60px;
-  background:linear-gradient(180deg,#e8f2ff,#f4f7ff);
+  width:92%;
+  max-width:900px;
+  margin:20px auto 70px;
 }
 
-.services h2{
-  margin-bottom:28px;
-  font-size:28px;
-}
-
-.service-grid{
-  max-width:980px;
-  margin:0 auto;
-  display:grid;
-  gap:18px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-/* ⭐ Glänzende 3D Karten */
 .service-card{
+  margin:16px 0;
+  padding:20px 16px 22px;
+  border-radius:18px;
+  background:linear-gradient(145deg,#ffffff,#eef4ff);
+  box-shadow:10px 10px 25px rgba(0,0,0,.12);
   position:relative;
-  background:linear-gradient(145deg,#ffffff,#dfe9ff);
-  border-radius:20px;
-  padding:20px 18px 22px;
   overflow:hidden;
-
-  box-shadow:
-    0 18px 35px rgba(0,0,0,.18),
-    inset 0 5px 15px rgba(255,255,255,.9);
-
-  transition:.35s ease;
 }
 
-.service-card:hover{
-  transform:translateY(-10px) scale(1.01);
-  box-shadow:
-    0 25px 45px rgba(0,0,0,.25),
-    inset 0 10px 25px rgba(255,255,255,.9);
-}
-
-.service-card::before{
+/* Schimmer für Handy UND PC */
+.service-card::after{
   content:"";
   position:absolute;
-  top:-80%;
-  left:-50%;
-  width:160%;
-  height:200%;
+  top:0;
+  left:-60%;
+  width:50%;
+  height:100%;
   background:linear-gradient(
-      120deg,
-      rgba(255,255,255,.25),
-      rgba(255,255,255,0),
-      rgba(255,255,255,.45)
+    120deg,
+    transparent,
+    rgba(255,255,255,.6),
+    transparent
   );
-  transform:rotate(10deg);
-  opacity:.6;
-  transition:.5s;
+  animation:cardShine 4.5s infinite;
 }
 
-.service-card:hover::before{
-  transform:translateX(30%) rotate(10deg);
-}
-
-.icon{
-  font-size:40px;
+@keyframes cardShine{
+  0%{left:-60%;}
+  60%{left:120%;}
+  100%{left:120%;}
 }
 
 .service-card h3{
-  margin:8px 0 6px;
+  margin-top:0;
 }
 
-.service-card p{
-  color:#405068;
-}
+/* ================= FOOTER ================== */
 
-/* ===== Footer ===== */
 footer{
-  margin-top:70px;
-  padding:40px 0;
-  background:#081529;
-  color:white;
+  padding:40px 0 70px;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- LOGO -->
+<!-- ================= LOGO ================= -->
 <section class="logo-hero">
   <div class="hm-logo-box">
     <img
       src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/main/78ABD3F8-E475-41CD-B1B2-E49196B8C291.png?raw=1"
-      alt="Hausmeisterservice Mathias Hornbruch"
       style="max-width:420px;width:100%;height:auto;"
-    >
+      alt="Hausmeisterservice Mathias Hornbruch">
     <div class="hm-shine-line"></div>
   </div>
 </section>
 
-<!-- BEWERTUNGEN -->
-<section class="reviews">
-  <div id="reviewBox" class="review-box"></div>
-</section>
 
-<!-- KONTAKT -->
-<section class="contact">
-  <h2>Kontakt</h2>
-  <p>Bei Fragen oder Interesse – wir freuen uns auf Ihren Anruf.</p>
-
-  <a href="tel:01602556936">
-    <button class="call-button">📞 Jetzt anrufen</button>
-  </a>
-</section>
-
-<!-- ÖFFNUNGSZEITEN -->
-<section class="hours">
-  <h3>Öffnungszeiten</h3>
-
-  <div class="hours-row"><b>Mo – Fr:</b> <span>07:00 – 17:00 Uhr</span></div>
-  <div class="hours-row"><b>Sa:</b> <span>09:00 – 13:00 Uhr</span></div>
-  <div class="hours-row"><b>So:</b> <span>Geschlossen</span></div>
-</section>
-
-<!-- DIENSTLEISTUNGEN -->
-<section class="services">
-  <h2>Unsere Leistungen</h2>
-
-  <div class="service-grid">
-
-    <div class="service-card">
-      <div class="icon">🌿</div>
-      <h3>Gartenpflege</h3>
-      <p>Rasen mähen, Hecken schneiden, Pflege der Außenanlagen.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="icon">🏠</div>
-      <h3>Hausmeisterservice</h3>
-      <p>Regelmäßige Objektbetreuung & kleine Instandsetzungen.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="icon">❄️</div>
-      <h3>Winterdienst</h3>
-      <p>Räumen, Streuen & Sicherung von Wegen und Zufahrten.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="icon">🛠️</div>
-      <h3>Kleine Reparaturen</h3>
-      <p>Schnelle Hilfe bei Defekten & Ausbesserungen.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="icon">🧹</div>
-      <h3>Treppenhausreinigung</h3>
-      <p>Sauberkeit und Ordnung in Mehrfamilienhäusern.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="icon">🚿</div>
-      <h3>Sanitär-Kleinservice</h3>
-      <p>Tropfende Hähne, WC-Kleinreparaturen, Dichtungen.</p>
-    </div>
-
+<!-- ================= BEWERTUNGEN ================= -->
+<section class="review-section">
+  <div class="review-box">
+    <div id="reviewStars" class="stars">★★★★★</div>
+    <div id="reviewText" class="review-text"></div>
+    <div id="reviewName" class="review-name"></div>
   </div>
 </section>
 
-<footer>
-  Hausmeisterservice Mathias Hornbruch
-</footer>
-
 <script>
-/* ===== Bewertungen ===== */
-
 const reviews = [
-  ["⭐⭐⭐⭐⭐","„Kompetente Beratung – wir fühlten uns gut aufgehoben.“","Herr Richter"],
-  ["⭐⭐⭐⭐","„Schnell gekommen, ordentlich gearbeitet.“","Frau Lehmann"],
-  ["⭐⭐⭐⭐⭐","„Sehr zuverlässig – jederzeit wieder.“","Familie Krüger"],
-  ["⭐⭐⭐","„Okay, hätte etwas schneller gehen können.“","Anonym"],
-  ["⭐⭐⭐⭐⭐","„Super freundlich und sauber gearbeitet.“","Herr Brandt"],
-  ["⭐⭐⭐⭐","„Preis-Leistung stimmt absolut.“","Frau Weber"],
-  ["⭐⭐⭐⭐⭐","„Hat sogar spontan Zusatzarbeit erledigt.“","Herr Scholz"],
-  ["⭐⭐⭐⭐⭐","„Top – kann ich nur empfehlen.“","Frau Peters"],
-  ["⭐⭐⭐","„In Ordnung, aber Termin verschoben.“","Kunde"],
-  ["⭐⭐⭐⭐⭐","„Sehr gründlich, sehr nett, perfekt!“","Familie Hanke"],
-  ["⭐⭐⭐⭐","„Alles wie besprochen erledigt.“","M. Fischer"],
-  ["⭐⭐⭐⭐⭐","„Unsere Anlage sieht wieder aus wie neu!“","Hausgemeinschaft"],
-  ["⭐⭐⭐⭐⭐","„Winterdienst absolut zuverlässig.“","Eigentümer"],
-  ["⭐⭐⭐⭐","„Transparent, fair, freundlich.“","K. Adler"],
-  ["⭐⭐⭐⭐⭐","„Hier merkt man Erfahrung & Herz.“","Familie Sommer"],
-  ["⭐⭐⭐⭐⭐","„Schnell, pünktlich, sauber.“","Firma Möller"],
-  ["⭐⭐⭐⭐","„Ordentliche Arbeit – empfehlenswert.“","Nachbar"],
-  ["⭐⭐⭐⭐⭐","„Wir sind sehr zufrieden.“","Verwalterin"],
-  ["⭐⭐⭐⭐⭐","„Toller Service, tolle Kommunikation.“","Familie Berger"],
-  ["⭐⭐⭐⭐⭐","„Absolute Empfehlung für Haus & Garten!“","Team Mietergemeinschaft"],
+  ["★★★★★","„Kompetente Beratung – wir fühlten uns gut aufgehoben.“","Herr Richter"],
+  ["★★★★★","„Sehr zuverlässig und freundlich — absolut empfehlenswert.“","Familie Krüger"],
+  ["★★★★☆","„Entrümpelung sauber & fair erledigt.“","Frau Dorn"],
+  ["★★★★★","„Umzug perfekt organisiert — stressfrei!“","Frau Albrecht"],
+  ["★★★★★","„Notdienst kam sofort – Problem gelöst.“","Herr Müller"],
+  ["★★★★★","„Alles aus einer Hand — super Service!“","Hausverwaltung"]
 ];
 
-let index = 0;
-
-function showReview(){
-  const box = document.getElementById("reviewBox");
-  box.style.animation = "none";
-  void box.offsetWidth;
-
-  const [stars, text, author] = reviews[index];
-
-  box.innerHTML = `
-    <div class="stars">${stars}</div>
-    <div class="review-text">${text}</div>
-    <div class="review-author">– ${author}</div>
-  `;
-
-  box.style.animation = "fadeSlide .6s ease";
-
-  index = (index + 1) % reviews.length;
+let rIndex = 0;
+function rotateReviews(){
+  const [s,t,n] = reviews[rIndex];
+  document.getElementById("reviewStars").innerText = s;
+  document.getElementById("reviewText").innerText = t;
+  document.getElementById("reviewName").innerText = "– "+n;
+  rIndex = (rIndex+1) % reviews.length;
 }
-
-showReview();
-setInterval(showReview, 4000);
+rotateReviews();
+setInterval(rotateReviews, 4000);
 </script>
+
+
+<!-- ================= KONTAKT ================= -->
+<h2 class="section-title">Kontakt</h2>
+
+<p>Bei Fragen oder Interesse — wir freuen uns auf Ihren Anruf.</p>
+
+<a class="call-btn" href="tel:01602556936">📞 Jetzt anrufen</a>
+
+
+<!-- ================= ÖFFNUNGSZEITEN ================= -->
+<div class="hours">
+  <h3>Öffnungszeiten</h3>
+  <p><strong>Mo – Fr:</strong> 07:00 – 17:00 Uhr</p>
+  <p><strong>Sa:</strong> 09:00 – 13:00 Uhr</p>
+  <p><strong>So:</strong> Geschlossen</p>
+</div>
+
+
+<!-- ================= LEISTUNGEN ================= -->
+<section class="services">
+
+  <div class="service-card">
+    <h3>🏠 Hausmeisterservice</h3>
+    Rundum-Betreuung von Objekten & Anlagen.
+  </div>
+
+  <div class="service-card">
+    <h3>🌿 Gartenpflege</h3>
+    Rasen mähen, Hecke schneiden, Pflege der Außenanlagen.
+  </div>
+
+  <div class="service-card">
+    <h3>🌳 Gartenbau & Zäune setzen</h3>
+    Gestaltung, Beete, Wege & Zaunmontage.
+  </div>
+
+  <div class="service-card">
+    <h3>🌲 Bäume schneiden & Heckenschnitt</h3>
+    Fachgerechter Rückschnitt inkl. Entsorgung.
+  </div>
+
+  <div class="service-card">
+    <h3>🧺 Entrümpelung jeder Art</h3>
+    Wohnungen, Keller, Dachböden, Garagen, Firmen.
+  </div>
+
+  <div class="service-card">
+    <h3>🚛 Entsorgung jeder Art von Müll</h3>
+    Fachgerecht, sicher & umweltbewusst.
+  </div>
+
+  <div class="service-card">
+    <h3>♻️ Ankauf von Schrott</h3>
+    Abholung & faire Vergütung möglich.
+  </div>
+
+  <div class="service-card">
+    <h3>🔥 Verkauf von Brennholz</h3>
+    Trockenes Brennholz — Lieferung auf Wunsch.
+  </div>
+
+  <div class="service-card">
+    <h3>🚽 Notdienst — Verstopfte Toilette</h3>
+    Schnelle Hilfe bei akuten Problemen.
+  </div>
+
+  <div class="service-card">
+    <h3>🧹 Treppenhaus-Reinigung</h3>
+    Sauberkeit in Mehrfamilienhäusern & Objekten.
+  </div>
+
+  <div class="service-card">
+    <h3>🚚 Umzüge deutschlandweit</h3>
+    Planung, Transport & Aufbau am neuen Ort.
+  </div>
+
+</section>
+
+
+<footer></footer>
 
 </body>
 </html>
