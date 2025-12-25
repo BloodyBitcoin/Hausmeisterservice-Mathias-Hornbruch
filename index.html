@@ -1,788 +1,493 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hausmeisterservice Mathias Hornbruch</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    /* ===== Grundlayout ===== */
-    :root{
-      --blau-dark:#0b1a33;
-      --blau:#1f6fff;
-      --blau-light:#e5f1ff;
-      --grau-text:#283548;
-      --karte-radius:26px;
-      --shadow-soft:0 18px 45px rgba(0,0,0,.14);
-    }
-
-    *{
-      box-sizing:border-box;
-    }
-
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      background:#f4f7fc;
-      color:var(--grau-text);
-      text-align:center;
-    }
-
-    h1,h2,h3{
-      margin:0;
-      font-weight:700;
-      color:var(--blau-dark);
-    }
-
-    section{
-      padding:32px 16px;
-    }
-
-    .inner{
-      max-width:980px;
-      margin:0 auto;
-    }
-
-    /* ===== Logo ===== */
-
-    .logo-hero{
-      padding:32px 16px 12px;
-    }
-
-    .logo-box{
-      background:#ffffff;
-      border-radius:26px;
-      box-shadow:var(--shadow-soft);
-      padding:26px 18px 34px;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .logo-box img{
-      max-width:420px;
-      width:100%;
-      height:auto;
-      display:block;
-      margin:0 auto;
-    }
-
-    .logo-shine-line{
-      position:absolute;
-      bottom:10px;
-      left:10%;
-      right:10%;
-      height:5px;
-      border-radius:999px;
-      background:linear-gradient(90deg,
-        rgba(0,180,255,0) 0%,
-        rgba(0,180,255,1) 40%,
-        rgba(120,220,255,1) 60%,
-        rgba(0,180,255,0) 100%
-      );
-      filter:blur(1px);
-      animation:shineLine 3.5s ease-in-out infinite;
-    }
-
-    @keyframes shineLine{
-      0%{transform:scaleX(.4);opacity:.15;}
-      40%{transform:scaleX(1);opacity:1;}
-      100%{transform:scaleX(.4);opacity:.15;}
-    }
-
-    /* ===== Bewertungs-Slider (ein Feld) ===== */
-
-    .reviews{
-      padding-top:12px;
-    }
-
-    .review-card{
-      background:#ffffff;
-      border-radius:var(--karte-radius);
-      box-shadow:var(--shadow-soft);
-      padding:30px 22px 28px;
-      margin:0 auto;
-      max-width:880px;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .review-stars{
-      font-size:32px;
-      margin-bottom:16px;
-    }
-
-    .review-stars span{
-      color:#ffbf00; /* gelb */
-      text-shadow:0 0 6px rgba(255,191,0,.6);
-    }
-
-    .review-text{
-      font-size:20px;
-      line-height:1.5;
-      margin-bottom:16px;
-      color:var(--grau-text);
-      font-style:italic;
-    }
-
-    .review-name{
-      font-size:16px;
-      color:#55657d;
-    }
-
-    .review-fade{
-      animation:reviewFade .6s ease;
-    }
-
-    @keyframes reviewFade{
-      from{opacity:0;transform:translateY(6px);}
-      to{opacity:1;transform:translateY(0);}
-    }
-
-    /* ===== Kontakt ===== */
-
-    .kontakt h2{
-      font-size:30px;
-      margin-bottom:12px;
-    }
-
-    .kontakt-text{
-      font-size:18px;
-      max-width:620px;
-      margin:0 auto 24px;
-    }
-
-    .call-button{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      border:none;
-      padding:14px 34px;
-      border-radius:999px;
-      font-size:20px;
-      font-weight:600;
-      background:linear-gradient(135deg,#2f7bff,#4693ff);
-      color:#fff;
-      box-shadow:0 14px 30px rgba(47,123,255,.45);
-      cursor:pointer;
-      text-decoration:none;
-    }
-
-    .call-button span.icon{
-      font-size:22px;
-      transform:rotate(-10deg);
-    }
-
-    .call-button:active{
-      transform:translateY(1px);
-      box-shadow:0 8px 18px rgba(47,123,255,.5);
-    }
-
-    /* ===== Öffnungszeiten ===== */
-
-    .zeiten-card{
-      background:#ffffff;
-      border-radius:var(--karte-radius);
-      box-shadow:var(--shadow-soft);
-      padding:26px 24px 24px;
-      text-align:left;
-    }
-
-    .zeiten-card h3{
-      font-size:22px;
-      margin-bottom:14px;
-    }
-
-    .zeiten-row{
-      display:flex;
-      justify-content:space-between;
-      margin:4px 0;
-      font-size:17px;
-    }
-
-    .zeiten-row span:first-child{
-      font-weight:600;
-    }
-
-    /* ===== Leistungen ===== */
-
-    .leistungen h2{
-      font-size:30px;
-      margin-bottom:24px;
-    }
-
-    .leistungen-grid{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-    }
-
-    .leistung-card{
-      background:linear-gradient(135deg,#e9f3ff,#f7fbff);
-      border-radius:var(--karte-radius);
-      padding:20px 22px 18px;
-      box-shadow:0 18px 40px rgba(15,72,138,.16);
-      text-align:left;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .leistung-card::before{
-      content:"";
-      position:absolute;
-      inset:-40%;
-      background:radial-gradient(circle at 0 0,rgba(255,255,255,.65),transparent 55%);
-      opacity:0;
-      transform:translateX(-40%);
-      transition:opacity .6s ease,transform .6s ease;
-      pointer-events:none;
-    }
-
-    .leistung-card:hover::before{
-      opacity:1;
-      transform:translateX(0);
-    }
-
-    .leistung-emoji{
-      font-size:28px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      margin-bottom:14px;
-    }
-
-    .leistung-title{
-      font-size:19px;
-      font-weight:700;
-      text-align:center;
-      margin-bottom:10px;
-      color:var(--blau-dark);
-    }
-
-    .leistung-list{
-      margin:0;
-      padding-left:1.1em;
-      list-style-type:"• ";
-      font-size:16px;
-      line-height:1.5;
-      color:#435369;
-    }
-
-    .leistung-list li{
-      margin-bottom:3px;
-    }
-
-    /* ===== Footer ===== */
-
-    footer{
-      margin-top:40px;
-      background:#081529;
-      color:#c7d2e8;
-      padding:24px 16px 28px;
-    }
-
-    .footer-inner{
-      max-width:980px;
-      margin:0 auto;
-    }
-
-    .footer-bottom{
-      margin-top:14px;
-      font-size:13px;
-      opacity:.7;
-    }
-
-    .footer-impressum-btn{
-      margin-top:10px;
-      background:transparent;
-      border:1px solid #3f6bff;
-      border-radius:999px;
-      padding:6px 18px;
-      color:#c7d2e8;
-      font-size:14px;
-    }
-
-    /* ===== Responsive ===== */
-
-    @media (min-width:768px){
-      section{
-        padding:40px 20px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ===== Logo ===== -->
-  <section class="logo-hero">
-    <div class="inner">
-      <div class="logo-box">
-        <img
-          src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/main/78ABD3F8-E475-41CD-B1B2-E49196B8C291.png"
-          alt="Hausmeisterservice Mathias Hornbruch Logo"
-        />
-        <div class="logo-shine-line"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Bewertungen (1 Karte, automatischer Wechsel) ===== -->
-  <section class="reviews">
-    <div class="inner">
-      <div class="review-card" id="review-card">
-        <div class="review-stars" id="review-stars">
-          <!-- wird per JS gefüllt -->
-        </div>
-        <div class="review-text" id="review-text">
-          <!-- wird per JS gefüllt -->
-        </div>
-        <div class="review-name" id="review-name">
-          <!-- wird per JS gefüllt -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Kontakt ===== -->
-  <section class="kontakt">
-    <div class="inner">
-      <h2>Kontakt</h2>
-      <p class="kontakt-text">
-        Bei Fragen oder Interesse – wir freuen uns auf Ihren Anruf.
-      </p>
-      <a class="call-button" href="tel:01602556936">
-        <span class="icon">📞</span>
-        <span>Jetzt anrufen</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- ===== Öffnungszeiten ===== -->
-  <section class="zeiten">
-    <div class="inner">
-      <div class="zeiten-card">
-        <h3>Öffnungszeiten</h3>
-        <div class="zeiten-row">
-          <span>Mo – Fr:</span>
-          <span>07:00 – 17:00 Uhr</span>
-        </div>
-        <div class="zeiten-row">
-          <span>Sa:</span>
-          <span>09:00 – 13:00 Uhr</span>
-        </div>
-        <div class="zeiten-row">
-          <span>So:</span>
-          <span>Geschlossen</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Leistungen ===== -->
-  <section class="leistungen">
-    <div class="inner">
-      <h2>Unsere Leistungen</h2>
-
-      <div class="leistungen-grid">
-
-        <article class="leistung-card">
-          <div class="leistung-emoji">🏠</div>
-          <div class="leistung-title">Hausmeisterservice</div>
-          <ul class="leistung-list">
-            <li>Pflege & Betreuung von Objekten</li>
-            <li>Regelmäßige Kontrollen & Kleinreparaturen</li>
-            <li>Ansprechpartner für Mieter & Eigentümer</li>
-          </ul>
-        </article>
-
-        <article class="leistung-card">
-          <div class="leistung-emoji">🌿</div>
-          <div class="leistung-title">Gartenpflege</div>
-          <ul class="leistung-list">
-            <li>Rasen mähen & vertikutieren</li>
-            <li>Hecken & Sträucher schneiden</li>
-            <li>Pflege von Außenanlagen</li>
-          </ul>
-        </article>
-
-        <article class="leistung-card">
-          <div class="leistung-emoji">🌲</div>
-          <div class="leistung-title">Gartenbau & Zäune</div>
-          <ul class="leistung-list">
-            <li>Zaunbau & Reparatur</li>
-            <li>Gestaltung von Beeten & Wegen</li>
-            <li>Aufbau kleiner Gartenprojekte</li>
-          </ul>
-        </article>
-
-        <article class="leistung-card">
-          <div class="leistung-emoji">🧹</div>
-          <div class="leistung-title">Entrümpelungen</div>
-          <ul class="leistung-list">
-            <li>Haushalts- & Kellerauflösungen</li>
-            <li>Sperrmüll & Wohnungsräumungen</li>
-            <li>Besenreine Übergabe</li>
-          </ul>
-        </article>
-
-        <article class="leistung-card">
-          <div class="leistung-emoji">🗑️</div>
-          <div class="leistung-title">Entsorgung</div>
-          <ul class="leistung-list">
-            <li>Fachgerechte Entsorgung jeder Art von Müll</li>
-            <li>Container-Organisation auf Wunsch</li>
-            <li>Saubere & ordentliche Abwicklung</li>
-          </ul>
-        </article>
-
-        <article class="leistung-card">
-          <div class="leistung-emoji">♻️</div>
-          <div class="leistung-title">Ankauf von Schrott</div>
-          <ul class="leistung-list">
-            <li>Abholung direkt vor Ort</li>
-            <li>Faire Vergütung nach Material</li>
-            <li>Umweltgerechte Verwertung</li>
-          </ul>
-        </article>
-
-        <article class="leistung-card">
-          <div class="leistung-emoji">🔥</div>
-          <div class="leistung-title">Verkauf von Brennholz</div>
-          <ul class="leistung-list">
-            <li>Trockenes Brennholz für Kamin & Ofen</li>
-            <li>Lieferung nach Absprache möglich</li>
-            <li>Flexible Mengen & faire Preise</li>
-          </ul>
-        </article>
-
-        <article class="leistung-card">
-          <div class="leistung-emoji">❄️</div>
-          <div class="leistung-title">Winterdienst</div>
-          <ul class="leistung-list">
-            <li>Räumen von Wegen & Zufahrten</li>
-            <li>Streuen & Absichern stark genutzter Flächen</li>
-            <li>Zuverlässig bereits in den frühen Morgenstunden</li>
-          </ul>
-        </article>
-
-        <article class="leistung-card">
-          <div class="leistung-emoji">🛠️</div>
-          <div class="leistung-title">Kleine Reparaturen</div>
-          <ul class="leistung-list">
-            <li>Ausbesserungen im & am Gebäude</li>
-            <li>Kleinere Wartungsarbeiten</li>
-            <li>Schnelle Hilfe bei Defekten</li>
-          </ul>
-        </article>
-
-        <article class="leistung-card">
-          <div class="leistung-emoji">🚽</div>
-          <div class="leistung-title">Notdienst – verstopfte Toilette</div>
-          <ul class="leistung-list">
-            <li>Schnelle Hilfe bei akuten Problemen</li>
-            <li>Behebung einfacher Verstopfungen</li>
-            <li>Saubere & ordentliche Arbeitsweise</li>
-          </ul>
-        </article>
-
-        <article class="leistung-card">
-          <div class="leistung-emoji">🧼</div>
-          <div class="leistung-title">Treppenhaus-Reinigung</div>
-          <ul class="leistung-list">
-            <li>Regelmäßige Reinigung von Treppenhäusern</li>
-            <li>Mehrfamilienhäuser & gewerbliche Objekte</li>
-            <li>Sauberer erster Eindruck für Bewohner & Besucher</li>
-          </ul>
-        </article>
-
-        <article class="leistung-card">
-          <div class="leistung-emoji">🚚</div>
-          <div class="leistung-title">Umzüge deutschlandweit</div>
-          <ul class="leistung-list">
-            <li>Planung & Organisation des Umzugs</li>
-            <li>Transport Ihres Hausrats</li>
-            <li>Aufbau am neuen Ort nach Absprache</li>
-          </ul>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Footer ===== -->
-  <footer>
-    <div class="footer-inner">
-      <div>Hausmeisterservice Mathias Hornbruch – Lübeck</div>
-      <button class="footer-impressum-btn">Impressum</button>
-      <div class="footer-bottom">
-        Demo-Webseite (Testnetz / ohne Rechtsverbindlichkeit)
-      </div>
-    </div>
-  </footer>
-
-  <!-- ===== Script: Bewertungs-Rotation ===== -->
-  <script>
-    const reviews = [
-      {
-        stars: 5,
-        text: "Kompetente Beratung – wir fühlten uns gut aufgehoben.",
-        name: "Herr Richter"
-      },
-      {
-        stars: 5,
-        text: "Zuverlässig, freundlich und schnell – gerne wieder.",
-        name: "Familie Schmidt"
-      },
-      {
-        stars: 4,
-        text: "Gute Arbeit und saubere Ausführung, kleine Verzögerung beim Termin.",
-        name: "Eheleute Krüger"
-      },
-      {
-        stars: 5,
-        text: "Top Winterdienst – unsere Einfahrt war immer frei.",
-        name: "Frau Neumann"
-      },
-      {
-        stars: 4,
-        text: "Garten sieht wieder super aus, Preis-Leistung stimmt.",
-        name: "Herr Becker"
-      },
-      {
-        stars: 5,
-        text: "Entrümpelung schnell & diskret erledigt. Vielen Dank!",
-        name: "Familie Lange"
-      },
-      {
-        stars: 5,
-        text: "Sehr hilfsbereit, denkt mit und findet praktische Lösungen.",
-        name: "Hausverwaltung Hansen"
-      },
-      {
-        stars: 4,
-        text: "Verlässliche Betreuung unseres Mehrfamilienhauses.",
-        name: "Eigentümergemeinschaft Mühlenstraße"
-      },
-      {
-        stars: 5,
-        text: "Notdienst wegen verstopfter Toilette – innerhalb kurzer Zeit vor Ort.",
-        name: "Herr P."
-      },
-      {
-        stars: 5,
-        text: "Umzug verlief reibungslos, alles unbeschädigt angekommen.",
-        name: "Familie Köster"
-      },
-      {
-        stars: 4,
-        text: "Sehr guter Eindruck, auch Sonderwünsche wurden berücksichtigt.",
-        name: "Frau Albrecht"
-      },
-      {
-        stars: 5,
-        text: "Freundlich, pünktlich und ordentlich – was will man mehr.",
-        name: "Herr Jansen"
-      },
-      {
-        stars: 5,
-        text: "Die Hausmeisterarbeiten werden zuverlässig und gründlich erledigt.",
-        name: "Wohnungsgenossenschaft Nord"
-      },
-      {
-        stars: 4,
-        text: "Brennholz in guter Qualität, Lieferung wie vereinbart.",
-        name: "Frau Kruse"
-      },
-      {
-        stars: 5,
-        text: "Treppenhaus ist immer sauber, Bewohner sind sehr zufrieden.",
-        name: "Vermietung Lübeck"
-      },
-      {
-        stars: 5,
-        text: "Schnelle Hilfe bei einem Wasserschaden – super Einsatz.",
-        name: "Herr Möller"
-      },
-      {
-        stars: 4,
-        text: "Kurzfristiger Winterdienst-Einsatz hat prima geklappt.",
-        name: "Firma Seaside"
-      },
-      {
-        stars: 5,
-        text: "Sehr angenehmer Kontakt und professionelle Umsetzung.",
-        name: "Familie Petersen"
-      },
-      {
-        stars: 4,
-        text: "Gartenarbeiten ordentlich erledigt, gerne wieder.",
-        name: "Herr M."
-      },
-      {
-        stars: 5,
-        text: "Rundum-Service, der uns viel Arbeit abnimmt.",
-        name: "Eigentümergemeinschaft Stadthaus"
-      }
-    ];
-
-    const starsEl = document.getElementById("review-stars");
-    const textEl  = document.getElementById("review-text");
-    const nameEl  = document.getElementById("review-name");
-    const cardEl  = document.getElementById("review-card");
-
-    let currentReview = 0;
-
-    function renderReview(index){
-      const r = reviews[index];
-
-      // Sterne bauen (★ / ☆)
-      let starString = "";
-      for(let i=1;i<=5;i++){
-        starString += i <= r.stars ? "★" : "☆";
-      }
-      starsEl.innerHTML = `<span>${starString}</span>`;
-      textEl.textContent = `„${r.text}“`;
-      nameEl.textContent = `– ${r.name}`;
-
-      // kleine Fade-Animation triggern
-      cardEl.classList.remove("review-fade");
-      void cardEl.offsetWidth; // Reflow für erneutes Abspielen
-      cardEl.classList.add("review-fade");
-    }
-
-    renderReview(currentReview);
-
-    setInterval(()=>{
-      currentReview = (currentReview + 1) % reviews.length;
-      renderReview(currentReview);
-    }, 6000); // alle 6 Sekunden wechseln
-  </script>
-  <!-- ===================== -->
-<!-- ⭐ WARUM WIR – PREMIUM -->
-<!-- ===================== -->
-
-<section style="
-  max-width:980px;
-  margin:80px auto;
-  padding:10px;
-  font-family:Arial, Helvetica, sans-serif;
-">
-
-<div style="
-  position:relative;
-  padding:32px 26px 34px;
-  border-radius:22px;
-  background:linear-gradient(180deg,#ffffffdd,#f3f8ffdd);
-  box-shadow:
-    0 25px 60px rgba(0,0,0,.16),
-    inset 0 0 0 1px rgba(130,170,255,.35);
-  overflow:hidden;
-">
+<title>Hausmeisterservice Mathias Hornbruch</title>
 
 <style>
-@keyframes whyRotate{
-  to{ transform:rotate(360deg); }
+/* ===========================
+   GRUNDLAYOUT
+=========================== */
+
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#f5f6fa;
+  color:#0c1b2d;
+  text-align:center;
 }
-</style>
 
-<div style="
-  content:'';
-  position:absolute;
-  inset:-40%;
-  background:conic-gradient(from 120deg,#7bc1ff33,#b9e0ff33,#7bc1ff33);
-  animation:whyRotate 12s linear infinite;
-  z-index:-1;
-"></div>
+/* ===========================
+   LOGO-BEREICH MIT SHIMMER
+=========================== */
 
-<span style="
+.logo-hero{
+  padding:35px 10px 10px;
+}
+
+.hm-logo-box{
   display:inline-block;
-  padding:6px 14px;
-  border-radius:30px;
-  background:#0d5fff;
-  color:white;
-  font-weight:700;
-  font-size:.85rem;
-  box-shadow:0 0 18px #0d5fff66;
-  margin-bottom:10px;
-">
-<!-- ===================== -->
-<!-- 💎 UNSER VERSPRECHEN -->
-<!-- ===================== -->
-
-<section style="max-width:980px;margin:90px auto 60px;padding:16px;
-font-family:Arial, Helvetica, sans-serif;">
-
-<div style="
+  padding:22px 25px 40px;
+  background:white;
+  border-radius:18px;
+  box-shadow:0 12px 34px rgba(0,0,0,.15);
   position:relative;
-  border-radius:26px;
-  padding:46px 26px 40px;
+}
+
+.hm-shine-line{
+  position:absolute;
+  bottom:10px;
+  left:16px;
+  right:16px;
+  height:4px;
+  border-radius:999px;
+  background:linear-gradient(90deg,
+    rgba(0,150,255,0) 0%,
+    rgba(0,150,255,.95) 50%,
+    rgba(0,150,255,0) 100%);
+  animation:shine 2.6s linear infinite;
+  transform-origin:center;
+}
+
+@keyframes shine{
+  0%{opacity:.15; transform:scaleX(.4);}
+  50%{opacity:1;   transform:scaleX(1);}
+  100%{opacity:.15;transform:scaleX(.4);}
+}
+
+/* ===========================
+   BEWERTUNGEN – SLIDER
+=========================== */
+
+.review-card{
+  max-width:980px;
+  margin:35px auto 25px;
+  background:#ffffff;
+  padding:26px 20px 30px;
+  border-radius:22px;
+  box-shadow:0 18px 40px rgba(0,0,0,.16);
+  transition:.4s;
+}
+
+.review-stars{
+  font-size:32px;
+  margin-bottom:12px;
+  color:#f6b800;           /* Emoji sind sowieso gelb, das verstärkt es nur */
+}
+
+.review-text{
+  font-size:18px;
+  font-style:italic;
+  line-height:1.5;
+}
+
+.review-author{
+  margin-top:14px;
+  font-size:16px;
+}
+
+/* ===========================
+   KONTAKT
+=========================== */
+
+h1,h2,h3{
+  margin:18px 0 10px;
+}
+
+p{
+  margin:0 0 8px;
+}
+
+.call-btn{
+  background:#2f7bff;
+  color:white;
+  padding:16px 34px;
+  border-radius:14px;
+  font-size:20px;
+  display:inline-block;
+  margin:14px 0 35px;
+  box-shadow:0 16px 30px rgba(47,123,255,.45);
+  text-decoration:none;
+}
+
+.call-btn:hover{
+  opacity:.92;
+}
+
+/* ===========================
+   ÖFFNUNGSZEITEN
+=========================== */
+
+.time-box{
+  max-width:980px;
+  margin:0 auto 32px;
+  background:#ffffff;
+  border-radius:20px;
+  padding:20px 22px 26px;
+  box-shadow:0 14px 30px rgba(0,0,0,.12);
+  text-align:left;
+}
+
+.time-box h3{
+  text-align:center;
+  margin-top:4px;
+}
+
+.time-box p{
+  font-size:16px;
+}
+
+/* ===========================
+   LEISTUNGEN – BLAUER SCHIMMER
+=========================== */
+
+.services-section-title{
+  margin-top:34px;
+}
+
+.service-card{
+  max-width:980px;
+  margin:18px auto;
+  padding:26px 16px 22px;
+  border-radius:18px;
+  background:linear-gradient(180deg,#ffffff,#eaf2ff);
+  box-shadow:
+    0 18px 40px rgba(0,80,185,.18),
+    inset 0 0 0 1px rgba(0,115,255,.28);
+}
+
+.service-card .emoji{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.service-card ul{
+  list-style:disc;
+  text-align:left;
+  max-width:720px;
+  margin:0 auto;
+  padding-left:22px;
+}
+
+.service-card li{
+  margin-bottom:4px;
+  font-size:16px;
+}
+
+/* ===========================
+   UNSER VERSPRECHEN
+=========================== */
+
+.promise-wrapper{
+  max-width:980px;
+  margin:70px auto 60px;
+  padding:16px;
+}
+
+.promise-card{
+  position:relative;
+  border-radius:28px;
+  padding:52px 26px 36px;
   background:linear-gradient(180deg,#ffffff,#f6f7fb);
   box-shadow:
-    0 25px 60px rgba(0,0,0,.14),
+    0 26px 60px rgba(0,0,0,.18),
     inset 0 0 0 2px rgba(255,215,0,.45);
   overflow:hidden;
-">
+}
 
-<!-- Goldener Rand-Glow -->
-<div style="
+.promise-glow{
   position:absolute;
-  inset:-2px;
-  border-radius:26px;
-  background:linear-gradient(140deg,#ffda6b,#ffd43b,#ffe79c,#ffda6b);
+  inset:-4px;
+  border-radius:28px;
+  background:linear-gradient(135deg,#ffda6b,#ffd43b,#ffe79c,#ffda6b);
+  filter:blur(16px);
   z-index:-1;
-  filter:blur(14px);
-"></div>
+}
 
-<!-- Garantiesiegel -->
-<div style="
-  width:115px;height:115px;
+.promise-badge{
+  width:120px;
+  height:120px;
   border-radius:50%;
-  background:radial-gradient(#fff,#ffe9a6);
+  background:radial-gradient(circle at 30% 20%,#ffffff,#ffe9a6);
   border:6px solid #ffcf44;
   display:grid;
   place-items:center;
-  font-size:34px;
+  font-size:30px;
   font-weight:900;
-  color:#2b2b2b;
-  margin:-82px auto 10px;
-  box-shadow:0 25px 40px rgba(0,0,0,.25);
-">
-100%
-</div>
+  margin:-90px auto 6px;
+  box-shadow:0 26px 42px rgba(0,0,0,.3);
+}
 
-<h2 style="text-align:center;margin:12px 0 18px;font-size:28px;font-weight:900;">
-Unser Versprechen
-</h2>
+.promise-badge span{
+  font-size:14px;
+  font-weight:600;
+}
 
-<p style="text-align:center;font-size:17px;color:#333;margin:0 0 18px;">
-Wir stehen mit unserem Namen dafür, dass Sie sich auf uns verlassen können.
-</p>
+.promise-card h2{
+  margin-top:10px;
+}
 
-<hr style="border:none;border-top:1px dashed #d7d7d7;margin:18px 0;">
+.promise-card p{
+  max-width:720px;
+  margin:6px auto 12px;
+}
 
-<ul style="list-style:none;padding:0;margin:0;">
+.promise-list{
+  list-style:none;
+  padding:0;
+  max-width:720px;
+  margin:12px auto 0;
+  text-align:left;
+}
 
-<li style="padding:12px 0;font-size:17px;">
-✔️ <strong>Termine werden eingehalten</strong> – oder wir melden uns rechtzeitig.
-</li>
+.promise-list li{
+  margin-bottom:6px;
+  font-size:16px;
+}
 
-<li style="padding:12px 0;font-size:17px;">
-✔️ <strong>Saubere & ordentliche Arbeit</strong> – wie bei uns Zuhause.
-</li>
+/* ===========================
+   FOOTER
+=========================== */
 
-<li style="padding:12px 0;font-size:17px;">
-✔️ <strong>Keine versteckten Kosten</strong> – alles wird vorher besprochen.
-</li>
+footer{
+  margin-top:40px;
+  background:#081529;
+  color:#d0ddff;
+  padding:28px 12px 22px;
+}
 
-<li style="padding:12px 0;font-size:17px;">
-✔️ <strong>Freundlicher Umgang</strong> – respektvoll & hilfsbereit.
-</li>
+footer button{
+  background:transparent;
+  border:2px solid #2f7bff;
+  color:white;
+  padding:10px 28px;
+  border-radius:10px;
+  font-size:18px;
+}
 
-<li style="padding:12px 0;font-size:17px;">
-✔️ <strong>Wir kommen wieder</strong>, bis Sie zufrieden sind.
-</li>
+footer button:hover{
+  background:#2f7bff;
+  cursor:pointer;
+}
 
-</ul>
+footer p{
+  font-size:13px;
+  margin-top:10px;
+  opacity:.8;
+}
+</style>
+</head>
 
-</div>
+<body>
 
+<!-- ===================== -->
+<!-- LOGO -->
+<!-- ===================== -->
+
+<section class="logo-hero">
+  <div class="hm-logo-box">
+    <img 
+      src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/main/78ABD3F8-E475-41CD-B1B2-E49196B8C291.png?raw=1"
+      alt="Hausmeisterservice Mathias Hornbruch Logo"
+      style="max-width:420px;width:100%;height:auto;">
+    <div class="hm-shine-line"></div>
+  </div>
 </section>
+
+<!-- ===================== -->
+<!-- BEWERTUNGEN – 1 KARTE, 20 TEXTE -->
+<!-- ===================== -->
+
+<div class="review-card">
+  <div id="reviewStars"  class="review-stars">⭐⭐⭐⭐⭐</div>
+  <div id="reviewText"   class="review-text">„Kompetente Beratung — wir fühlten uns gut aufgehoben.“</div>
+  <div id="reviewAuthor" class="review-author">– Herr Richter</div>
+</div>
+
+<script>
+const reviews = [
+  ["⭐⭐⭐⭐⭐","„Kompetente Beratung — wir fühlten uns gut aufgehoben.“","– Herr Richter"],
+  ["⭐⭐⭐⭐⭐","„Zuverlässig, freundlich und schnell — gerne wieder.“","– Familie Schmidt"],
+  ["⭐⭐⭐⭐","„Gute Arbeit zu fairen Preisen.“","– Frau Lange"],
+  ["⭐⭐⭐⭐⭐","„Sehr hilfsbereit – auch bei kurzfristigen Anfragen.“","– Herr Krüger"],
+  ["⭐⭐⭐⭐⭐","„Saubere Arbeit, alles ordentlich hinterlassen.“","– Familie Petersen"],
+  ["⭐⭐⭐⭐","„Reagiert schnell und ist pünktlich vor Ort.“","– Herr Walter"],
+  ["⭐⭐⭐⭐⭐","„Top Service – absolut empfehlenswert.“","– Frau Koch"],
+  ["⭐⭐⭐⭐⭐","„Man merkt, dass hier mitgedacht wird.“","– Familie Schröder"],
+  ["⭐⭐⭐⭐","„Preis-Leistung passt, wir sind zufrieden.“","– Herr Brandt"],
+  ["⭐⭐⭐⭐⭐","„Schon mehrfach beauftragt – immer zuverlässig.“","– Frau Jansen"],
+  ["⭐⭐⭐⭐⭐","„Auch Sonderwünsche wurden möglich gemacht.“","– Familie König"],
+  ["⭐⭐⭐⭐","„Kommunikation klappt gut, Rückmeldungen kommen zügig.“","– Herr Berger"],
+  ["⭐⭐⭐⭐⭐","„Unser Objekt ist endlich in guten Händen.“","– Hausverwaltung Müller"],
+  ["⭐⭐⭐⭐⭐","„Sehr höflich, hilfsbereit und professionell.“","– Frau Albrecht"],
+  ["⭐⭐⭐⭐","„Kleine Mängel wurden sofort nachgebessert.“","– Familie Neumann"],
+  ["⭐⭐⭐⭐⭐","„Winterdienst und Gartenpflege aus einer Hand – ideal.“","– WEG-Anlage Lübeck"],
+  ["⭐⭐⭐⭐⭐","„Entrümpelung schnell, fair und besenrein.“","– Herr Schuster"],
+  ["⭐⭐⭐⭐","„Der Umzug lief reibungslos und ohne Stress.“","– Familie Paulsen"],
+  ["⭐⭐⭐⭐⭐","„Wir würden jederzeit wieder beauftragen.“","– Ehepaar Hoffmann"],
+  ["⭐⭐⭐⭐⭐","„Ein Ansprechpartner für alles rund ums Haus – super!“","– Familie Richter"]
+];
+
+let reviewIndex = 0;
+setInterval(()=>{
+  reviewIndex = (reviewIndex + 1) % reviews.length;
+  document.getElementById("reviewStars").textContent  = reviews[reviewIndex][0];
+  document.getElementById("reviewText").textContent   = reviews[reviewIndex][1];
+  document.getElementById("reviewAuthor").textContent = reviews[reviewIndex][2];
+}, 4000);
+</script>
+
+<!-- ===================== -->
+<!-- KONTAKT -->
+<!-- ===================== -->
+
+<h2>Kontakt</h2>
+<p>Bei Fragen oder Interesse – wir freuen uns auf Ihren Anruf.</p>
+<a class="call-btn" href="tel:01602556936">📞 Jetzt anrufen</a>
+
+<!-- ===================== -->
+<!-- ÖFFNUNGSZEITEN -->
+<!-- ===================== -->
+
+<div class="time-box">
+  <h3>Öffnungszeiten</h3>
+  <p><strong>Mo – Fr:</strong> 07:00 – 17:00 Uhr</p>
+  <p><strong>Sa:</strong> 09:00 – 13:00 Uhr</p>
+  <p><strong>So:</strong> Geschlossen</p>
+</div>
+
+<!-- ===================== -->
+<!-- UNSERE LEISTUNGEN
+====================== -->
+
+<h2 class="services-section-title">Unsere Leistungen</h2>
+
+<!-- Hausmeisterservice -->
+<div class="service-card">
+  <div class="emoji">🏠</div>
+  <ul>
+    <li>Regelmäßige Objektbetreuung</li>
+    <li>Kontrolle von Anlagen, Beleuchtung & Außenbereichen</li>
+    <li>Koordination von Handwerkern & Dienstleistern</li>
+  </ul>
+</div>
+
+<!-- Gartenpflege -->
+<div class="service-card">
+  <div class="emoji">🌿</div>
+  <ul>
+    <li>Rasen mähen & Hecken schneiden</li>
+    <li>Pflege von Beeten & Außenanlagen</li>
+    <li>Beseitigung von Laub & Grünabfällen</li>
+  </ul>
+</div>
+
+<!-- Gartenbau & Zäune -->
+<div class="service-card">
+  <div class="emoji">🌲</div>
+  <ul>
+    <li>Gartenbau & Gestaltung von Außenbereichen</li>
+    <li>Zäune setzen, reparieren & ausrichten</li>
+    <li>Bäume & Sträucher schneiden</li>
+  </ul>
+</div>
+
+<!-- Entrümpelung & Entsorgung -->
+<div class="service-card">
+  <div class="emoji">🧹</div>
+  <ul>
+    <li>Entrümpelung von Wohnungen, Kellern, Dachböden & Garagen</li>
+    <li>Entsorgung jeder Art von Müll nach Vorgabe</li>
+    <li>Besenreine Übergabe der Räume</li>
+  </ul>
+</div>
+
+<!-- Ankauf von Schrott -->
+<div class="service-card">
+  <div class="emoji">♻️</div>
+  <ul>
+    <li>Ankauf & Abholung von Schrott und Altmetall</li>
+    <li>Faire Vergütung nach Material</li>
+    <li>Flexible Terminvereinbarung</li>
+  </ul>
+</div>
+
+<!-- Verkauf von Brennholz -->
+<div class="service-card">
+  <div class="emoji">🔥</div>
+  <ul>
+    <li>Verkauf von trockenem Brennholz</li>
+    <li>Lieferung nach Absprache möglich</li>
+    <li>Auf Wunsch vor Ort gestapelt</li>
+  </ul>
+</div>
+
+<!-- Notdienst Toilette -->
+<div class="service-card">
+  <div class="emoji">🚽</div>
+  <ul>
+    <li>Notdienst bei verstopfter Toilette</li>
+    <li>Schnelle Hilfe bei akuten Problemen</li>
+    <li>Grundlegende Rohrreinigung & Schadensmeldung</li>
+  </ul>
+</div>
+
+<!-- Treppenhaus-Reinigung -->
+<div class="service-card">
+  <div class="emoji">🧼</div>
+  <ul>
+    <li>Regelmäßige Treppenhaus-Reinigung in Mehrfamilienhäusern</li>
+    <li>Böden fegen, wischen & Saugen</li>
+    <li>Geländer, Fensterbänke & Eingangsbereiche reinigen</li>
+  </ul>
+</div>
+
+<!-- Umzüge deutschlandweit -->
+<div class="service-card">
+  <div class="emoji">🚚</div>
+  <ul>
+    <li>Umzüge deutschlandweit</li>
+    <li>Planung, Organisation & Transport</li>
+    <li>Aufbau der Möbel am neuen Ort</li>
+  </ul>
+</div>
+
+<!-- ===================== -->
+<!-- UNSER VERSPRECHEN
+====================== -->
+
+<section class="promise-wrapper">
+  <div class="promise-card">
+    <div class="promise-glow"></div>
+
+    <div class="promise-badge">
+      100%
+      <span>Engagement</span>
+    </div>
+
+    <h2>Unser Versprechen</h2>
+    <p>Wir behandeln jedes Objekt, als wäre es unser eigenes – zuverlässig, ordentlich und mit Blick für Details.</p>
+
+    <ul class="promise-list">
+      <li>✔️ Termine werden eingehalten – wir kommen, wenn wir es zusagen.</li>
+      <li>✔️ Saubere & sorgfältige Arbeit innen und außen.</li>
+      <li>✔️ Faire, transparente Preise – keine versteckten Kosten.</li>
+      <li>✔️ Direkter Ansprechpartner statt Callcenter.</li>
+      <li>✔️ Wir bleiben dran, bis Sie zufrieden sind.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== -->
+<!-- FOOTER / IMPRESSUM
+====================== -->
+
+<footer>
+  <button>Impressum</button>
+  <p>Demo-Webseite (Testnetz / ohne Rechtsverbindlichkeit)</p>
+</footer>
+
+</body>
+</html>
