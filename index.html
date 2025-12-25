@@ -2,7 +2,6 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8" />
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Hausmeisterservice Mathias Hornbruch</title>
@@ -34,15 +33,40 @@ body{
   position:relative;
 }
 
-/* animierte glühende Linie */
+/* ⭐ animierte, flüssige Glanz-Linie */
 
-Linie */
+.hm-shine-line{
+  position:absolute;
+  bottom:8px;
+  left:10px;
+  right:10px;
+  height:4px;
+  border-radius:3px;
 
+  background:linear-gradient(
+    90deg,
+    rgba(0,150,255,0) 0%,
+    rgba(0,150,255,1) 40%,
+    rgba(0,150,255,0) 80%
+  );
+
+  background-size:200% 100%;
+  animation:shine 3.5s ease-in-out infinite;
+}
 
 @keyframes shine{
-  0%{opacity:.1; transform:scaleX(.4);}
-  50%{opacity:1; transform:scaleX(1);}
-  100%{opacity:.1; transform:scaleX(.4);}
+  0%{
+    background-position:0% 0;
+    opacity:.4;
+  }
+  50%{
+    background-position:100% 0;
+    opacity:1;
+  }
+  100%{
+    background-position:0% 0;
+    opacity:.4;
+  }
 }
 
 /* ===== Text ===== */
@@ -74,8 +98,8 @@ footer button:hover{
 }
 
 </style>
-
 </head>
+
 
 <body>
 
@@ -85,13 +109,12 @@ footer button:hover{
 
   <div class="hm-logo-box">
 
-      <!-- Bild -->
-<img 
-  src="78ABD3F8-E475-41CD-B1B2-E49196B8C291.png"
-  alt="Hausmeisterservice Mathias Hornbruch Logo"
-  style="max-width:420px; width:100%; height:auto;"
->
-      <!-- animierte Linie -->
+      <img 
+        src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/main/78ABD3F8-E475-41CD-B1B2-E49196B8C291.png?raw=1"
+        alt="Hausmeisterservice Mathias Hornbruch Logo"
+        style="max-width:420px; width:100%; height:auto;"
+      >
+
       <div class="hm-shine-line"></div>
 
   </div>
