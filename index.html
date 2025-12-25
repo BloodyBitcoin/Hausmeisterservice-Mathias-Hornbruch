@@ -453,41 +453,88 @@ setInterval(()=>{
     <li>Aufbau der Möbel am neuen Ort</li>
   </ul>
 </div>
+   <!-- ===== GÜTESIEGEL ===== -->
 
-<!-- ===================== -->
-<!-- UNSER VERSPRECHEN
-====================== -->
+<section class="seals-wrap">
 
-<section class="promise-wrapper">
-  <div class="promise-card">
-    <div class="promise-glow"></div>
+  <h2>Unser Versprechen an Sie</h2>
 
-    <div class="promise-badge">
-      100%
-      <span>Engagement</span>
+  <div class="seals-row">
+
+    <!-- Bestpreis -->
+    <div class="seal-box">
+      <img src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/1584BF35-EEF1-43E4-9DD4-A844E6B0EFA8.png" alt="Bestpreis">
     </div>
 
-    <h2>Unser Versprechen</h2>
-    <p>Wir behandeln jedes Objekt, als wäre es unser eigenes – zuverlässig, ordentlich und mit Blick für Details.</p>
+    <!-- Qualität -->
+    <div class="seal-box">
+      <img src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/AF365E91-3335-44A9-AD5B-DCCCC517CCC4.png" alt="Qualität">
+    </div>
 
-    <ul class="promise-list">
-      <li>✔️ Termine werden eingehalten – wir kommen, wenn wir es zusagen.</li>
-      <li>✔️ Saubere & sorgfältige Arbeit innen und außen.</li>
-      <li>✔️ Faire, transparente Preise – keine versteckten Kosten.</li>
-      <li>✔️ Direkter Ansprechpartner statt Callcenter.</li>
-      <li>✔️ Wir bleiben dran, bis Sie zufrieden sind.</li>
-    </ul>
+    <!-- Leistung -->
+    <div class="seal-box">
+      <img src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/refs/heads/main/D199912C-56EB-4FFE-B464-5142526391B6.png" alt="Leistung">
+    </div>
+
   </div>
+
+  <p class="seal-note">
+    *Diese Siegel sind unsere eigenen Service-Auszeichnungen und dienen der Orientierung.
+    Sie stellen keine amtlichen oder extern geprüften Prüfsiegel dar.*
+  </p>
+
 </section>
 
-<!-- ===================== -->
-<!-- FOOTER / IMPRESSUM
-====================== -->
+<style>
+.seals-wrap{
+  padding:60px 20px 80px;
+  text-align:center;
+}
 
-<footer>
-  <button>Impressum</button>
-  <p>Demo-Webseite (Testnetz / ohne Rechtsverbindlichkeit)</p>
-</footer>
+.seals-wrap h2{
+  margin-bottom:28px;
+  font-size:26px;
+  font-weight:800;
+}
 
-</body>
-</html>
+.seals-row{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+.seal-box{
+  background:linear-gradient(180deg,#ffffff,#eef6ff);
+  border-radius:18px;
+  padding:18px 14px;
+  width:150px;
+  box-shadow:
+    0 18px 35px rgba(0,0,0,.12),
+    0 0 22px rgba(0,136,255,.25);
+  animation:float 4s ease-in-out infinite;
+}
+
+.seal-box img{
+  width:100%;
+  height:auto;
+  filter:
+    drop-shadow(0 12px 14px rgba(0,0,0,.18))
+    drop-shadow(0 0 10px rgba(0,140,255,.35));
+}
+
+@keyframes float{
+  0%{ transform:translateY(0); }
+  50%{ transform:translateY(-8px); }
+  100%{ transform:translateY(0); }
+}
+
+.seal-note{
+  max-width:720px;
+  margin:28px auto 0;
+  font-size:14px;
+  color:#65738b;
+  line-height:1.5;
+}
+</style>
