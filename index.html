@@ -7,7 +7,7 @@
 
 <style>
 
-/* ======= Grundlayout ======= */
+/* ===== Grundlayout ===== */
 
 body{
   margin:0;
@@ -32,8 +32,6 @@ body{
   position:relative;
 }
 
-/* animierte glühende Linie */
-
 .hm-shine-line{
   position:absolute;
   bottom:8px;
@@ -52,12 +50,6 @@ body{
   0%{opacity:.15; transform:scaleX(.4);}
   50%{opacity:1; transform:scaleX(1);}
   100%{opacity:.15; transform:scaleX(.4);}
-}
-
-/* ===== Abschnitt Titel ===== */
-
-h1{
-  margin-top:20px;
 }
 
 /* ===== Bewertungen ===== */
@@ -114,7 +106,7 @@ h1{
 /* ===== Öffnungszeiten ===== */
 
 .hours-box{
-  margin:30px auto 70px;
+  margin:30px auto 40px;
   background:white;
   width:90%;
   max-width:700px;
@@ -126,6 +118,53 @@ h1{
 
 .hours-box h3{
   margin-top:6px;
+}
+
+/* ===== Dienstleistungen ===== */
+
+.services{
+  padding:45px 16px 60px;
+}
+
+.services h2{
+  margin-bottom:25px;
+  font-size:28px;
+}
+
+.service-grid{
+  max-width:980px;
+  margin:0 auto;
+  display:grid;
+  gap:14px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.service-card{
+  background:linear-gradient(145deg,#ffffff,#eaf2ff);
+  border-radius:18px;
+  padding:18px 16px 20px;
+  box-shadow:
+    0 18px 35px rgba(0,0,0,.18),
+    inset 0 2px 10px rgba(255,255,255,.9);
+  transition:.25s;
+}
+
+.service-card:hover{
+  transform:translateY(-6px);
+}
+
+.icon{
+  font-size:34px;
+  margin-bottom:8px;
+}
+
+.service-card h3{
+  margin:5px 0 6px;
+}
+
+.service-card p{
+  color:#405068;
+  font-size:15px;
 }
 
 /* ===== Footer ===== */
@@ -160,13 +199,10 @@ footer button:hover{
 
 <section class="logo-hero">
   <div class="hm-logo-box">
-
     <img 
       src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/main/78ABD3F8-E475-41CD-B1B2-E49196B8C291.png?raw=1"
       alt="Hausmeisterservice Mathias Hornbruch Logo"
-      style="max-width:420px; width:100%; height:auto;"
-    >
-
+      style="max-width:420px; width:100%; height:auto;">
     <div class="hm-shine-line"></div>
   </div>
 </section>
@@ -179,41 +215,118 @@ footer button:hover{
   <div id="review-name" class="review-name">– Kunde</div>
 </div>
 
-
 <!-- ===== Kontakt ===== -->
 
 <h2 class="section-title">Kontakt</h2>
-
 <p>Bei Fragen oder Interesse – wir freuen uns auf Ihren Anruf.</p>
 
 <a class="call-btn" href="tel:01602556936">📞 Jetzt anrufen</a>
-
 
 <!-- ===== Öffnungszeiten ===== -->
 
 <div class="hours-box">
   <h3>Öffnungszeiten</h3>
-
   <p><b>Mo – Fr:</b> 07:00 – 17:00 Uhr</p>
   <p><b>Sa:</b> 09:00 – 13:00 Uhr</p>
   <p><b>So:</b> Geschlossen</p>
 </div>
 
+<!-- ===== Dienstleistungen ===== -->
 
-<!-- ===== FOOTER ===== -->
+<section class="services">
+
+  <h2>Unsere Dienstleistungen</h2>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <div class="icon">🌿</div>
+      <h3>Gartenpflege</h3>
+      <p>Rasen mähen, Hecken schneiden, Pflege der Außenanlagen.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🏠</div>
+      <h3>Hausmeisterservice</h3>
+      <p>Regelmäßige Objektbetreuung & kleine Instandsetzungen.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">❄️</div>
+      <h3>Winterdienst</h3>
+      <p>Räumen, Streuen & Sicherung von Wegen und Zufahrten.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🛠</div>
+      <h3>Kleine Reparaturen</h3>
+      <p>Schnelle Hilfe bei Defekten & Ausbesserungen.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🧹</div>
+      <h3>Treppenhausreinigung</h3>
+      <p>Saubere Eingänge, Flure & Gemeinschaftsflächen.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🚚</div>
+      <h3>Entrümpelung</h3>
+      <p>Diskret, schnell und besenrein.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🔧</div>
+      <h3>Montagearbeiten</h3>
+      <p>Möbelaufbau, Regale, Lampen & kleinere Installationen.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🧯</div>
+      <h3>Brandschutzkontrollen</h3>
+      <p>Regelmäßige Prüfung von Fluchtwegen & Feuerlöschern.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🌧</div>
+      <h3>Dachrinnenreinigung</h3>
+      <p>Reinigung & Kontrolle für freien Wasserablauf.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">💡</div>
+      <h3>Beleuchtung tauschen</h3>
+      <p>Wechseln von Glühbirnen & defekten Leuchten.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🪣</div>
+      <h3>Grundreinigung</h3>
+      <p>Intensive Reinigung nach Renovierungen & Umzügen.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🔨</div>
+      <h3>Kleinere Renovierungen</h3>
+      <p>Streichen, Silikon erneuern & kleine Ausbesserungen.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
 
 <footer>
   <button>Impressum</button>
 </footer>
 
-
-<!-- ===== SCRIPT: Bewertungen rotieren ===== -->
+<!-- ===== Bewertungen Script ===== -->
 
 <script>
 
 const reviews = [
   {stars:"⭐⭐⭐⭐⭐", text:"„Sehr zuverlässig und immer pünktlich!“", name:"– Lars M."},
-  {stars:"⭐⭐⭐⭐⭐", text:"„Hat uns super kurzfristig geholfen und alles ordentlich erledigt. Wirklich top!“", name:"– Familie Krüger"},
+  {stars:"⭐⭐⭐⭐⭐", text:"„Hat uns super kurzfristig geholfen und alles ordentlich erledigt.“", name:"– Familie Krüger"},
   {stars:"⭐⭐⭐⭐", text:"„Saubere Arbeit, fairer Preis.“", name:"– Michaela M."},
   {stars:"⭐⭐⭐⭐⭐", text:"„Top Hausmeisterservice – wir fühlen uns super betreut.“", name:"– Herr Schulz"},
   {stars:"⭐⭐⭐⭐☆", text:"„Freundlich und zuverlässig. Kleine Wartezeit, sonst alles gut.“", name:"– Familie Becker"},
@@ -222,7 +335,7 @@ const reviews = [
   {stars:"⭐⭐⭐⭐⭐", text:"„Sehr angenehmer Kontakt und professionell.“", name:"– Frau Petersen"},
   {stars:"⭐⭐⭐⭐⭐", text:"„Endlich jemand, der hält was er verspricht.“", name:"– Marco M."},
   {stars:"⭐⭐⭐⭐", text:"„Alles ordentlich erledigt.“", name:"– Familie Wagner"},
-  {stars:"⭐⭐⭐⭐⭐", text:"„Wir lassen alles rund ums Haus machen – super Service.“", name:"– Eheleute Hoffmann"},
+  {stars:"⭐⭐⭐⭐⭐", text:"„Wir lassen alles rund ums Haus machen – super Service.“", name:"– Ehepaar Hoffmann"},
   {stars:"⭐⭐⭐☆☆", text:"„Termin musste einmal verschoben werden.“", name:"– Patrick F."},
   {stars:"⭐⭐⭐⭐⭐", text:"„Schnell, freundlich, perfekt erledigt.“", name:"– Susanne B."},
   {stars:"⭐⭐⭐⭐⭐", text:"„Faire Preise und sehr zuverlässig.“", name:"– Timo L."},
