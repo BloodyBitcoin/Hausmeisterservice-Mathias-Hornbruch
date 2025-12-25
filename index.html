@@ -696,3 +696,89 @@ slideArea.addEventListener("touchend", e=>{
   if(endX > startX + 40) prevBtn.click();
 });
 </script>
+<!-- ====================== -->
+<!--   SO LÄUFT ES AB       -->
+<!-- ====================== -->
+
+<section class="process-wrap">
+
+  <h2>So läuft es bei uns ab</h2>
+  <p class="process-sub">
+    Einfach, fair und ohne Stress – von der ersten Anfrage bis zur fertigen Arbeit.
+  </p>
+
+  <div class="process-grid">
+
+    <div class="process-step">
+      <div class="icon">📞</div>
+      <h3>1. Kontakt aufnehmen</h3>
+      <p>Sie rufen an oder schreiben uns – wir hören zu und klären die wichtigsten Details.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="icon">👀</div>
+      <h3>2. Vor-Ort Termin</h3>
+      <p>Wir schauen uns alles an, beraten ehrlich und finden gemeinsam eine Lösung.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="icon">📝</div>
+      <h3>3. Faires Angebot</h3>
+      <p>Sie bekommen ein transparentes, unverbindliches Angebot – ohne versteckte Kosten.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="icon">💪</div>
+      <h3>4. Saubere Ausführung</h3>
+      <p>Wir erledigen die Arbeit zuverlässig, ordentlich und hinterlassen alles sauber.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+.process-wrap{
+  padding:70px 18px 80px;
+  text-align:center;
+  background:#f5f6fb;
+}
+
+.process-wrap h2{
+  margin-bottom:8px;
+}
+
+.process-sub{
+  color:#6b7a92;
+  margin-bottom:35px;
+}
+
+.process-grid{
+  max-width:980px;
+  margin:0 auto;
+  display:grid;
+  gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+}
+
+.process-step{
+  background:white;
+  border-radius:18px;
+  padding:18px 16px 20px;
+  box-shadow:0 14px 34px rgba(0,0,0,.12);
+}
+
+.process-step .icon{
+  font-size:38px;
+  margin-bottom:8px;
+}
+
+.process-step h3{
+  margin:6px 0 6px;
+}
+
+.process-step p{
+  margin:0;
+  font-size:15px;
+}
+</style>
