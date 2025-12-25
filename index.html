@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>Hausmeisterservice Mathias Hornbruch</title>
 
 <style>
 
-/* ========= Grundlayout ========= */
+/* ===== Allgemein ===== */
 
 body{
   margin:0;
@@ -17,7 +18,7 @@ body{
   text-align:center;
 }
 
-/* ========= Logo ========= */
+/* ===== Logo ===== */
 
 .logo-hero{
   padding:40px 10px;
@@ -32,7 +33,6 @@ body{
   position:relative;
 }
 
-/* animierte Linie */
 .hm-shine-line{
   position:absolute;
   bottom:8px;
@@ -53,312 +53,205 @@ body{
   100%{opacity:.1; transform:scaleX(.4);}
 }
 
-/* ========= Bewertungen ========= */
+/* ===== Bewertungen ===== */
 
 .review-box{
-  margin:25px auto 35px;
-  width:92%;
-  max-width:900px;
+  margin:25px auto;
   background:white;
-  border-radius:16px;
-  padding:18px 14px 22px;
-  box-shadow:0 12px 35px rgba(0,0,0,.12);
+  width:90%;
+  max-width:900px;
+  border-radius:18px;
+  padding:25px 18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
 }
 
-.review-stars{
-  font-size:30px;
+.stars{
+  font-size:34px;
+  color:#ffcc00;
 }
 
 .review-text{
   font-style:italic;
-  margin-top:10px;
+  margin-top:12px;
 }
 
 .review-author{
   margin-top:10px;
-  color:#444;
-  font-size:14px;
+  color:#4b4b4b;
 }
 
-/* Slider Animation */
-@keyframes fadeReview{
-  0%{opacity:0;}
-  10%{opacity:1;}
-  90%{opacity:1;}
-  100%{opacity:0;}
-}
-
-.review{
-  display:none;
-  animation:fadeReview 6s linear;
-}
-
-.review.active{
-  display:block;
-}
-
-/* ========= Kontakt ========= */
+/* ===== Kontakt ===== */
 
 section{
-  width:92%;
-  max-width:900px;
-  margin:0 auto;
+  margin-top:35px;
+}
+
+h1{
+  margin-bottom:10px;
 }
 
 .call-btn{
-  margin-top:18px;
   display:inline-block;
-  padding:14px 28px;
+  background:#2f7bff;
+  color:white;
+  border:none;
+  padding:14px 26px;
   font-size:20px;
-  border-radius:14px;
-  background:#1f6dff;
+  border-radius:10px;
+  margin-top:22px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.call-btn a{
   color:white;
   text-decoration:none;
-  box-shadow:0 10px 30px rgba(0,0,0,.22);
 }
 
-/* ========= Öffnungszeiten ========= */
+.call-btn:hover{
+  background:#1f5bdd;
+  cursor:pointer;
+}
 
-.hours-box{
-  margin-top:35px;
-  margin-bottom:40px;
+/* ===== Öffnungszeiten ===== */
+
+.time-box{
+  margin:25px auto;
   background:white;
+  width:90%;
+  max-width:900px;
   border-radius:18px;
-  padding:22px 20px;
+  padding:25px 18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
   text-align:left;
-  box-shadow:0 15px 40px rgba(0,0,0,.12);
 }
 
-/* ========= LEISTUNGEN (Handwerker Style) ========= */
+/* ===== Dienstleistungen ===== */
 
-.services{
-  width:92%;
-  max-width:900px;
-  margin:25px auto 80px;
+.services-title{
+  margin-top:40px;
+  font-size:26px;
+  font-weight:700;
 }
 
 .service-card{
-  margin:18px 0;
-  padding:22px 18px 26px;
-  border-radius:18px;
-
-  background:linear-gradient(145deg,#2d3742,#1d242c);
-  color:white;
-
-  box-shadow:
-    0 15px 35px rgba(0,0,0,.35),
-    inset 0 0 0 2px rgba(255,255,255,.06);
-
-  position:relative;
-  overflow:hidden;
-}
-
-/* gelb-schwarzer Handwerkerstreifen */
-.service-card::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:10px;
-  background:repeating-linear-gradient(
-    45deg,
-    #ffcc00,
-    #ffcc00 14px,
-    #222 14px,
-    #222 28px
-  );
-}
-
-/* Schimmer */
-.service-card::after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-60%;
-  width:50%;
-  height:100%;
-  background:linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,.18),
-    transparent
-  );
-  animation:cardShine 5s infinite;
-}
-
-@keyframes cardShine{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(260%);}
+  width:90%;
+  max-width:900px;
+  margin:18px auto;
+  padding:22px 15px;
+  border-radius:20px;
+  background:linear-gradient(180deg,#ffffff,#eaf5ff);
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
 }
 
 .service-emoji{
   font-size:42px;
-  margin-top:12px;
 }
 
 .service-text{
-  margin-top:14px;
-  font-size:16px;
-  color:#e6ecf5;
-  line-height:1.45;
+  margin-top:10px;
+  font-size:18px;
+  color:#34495e;
 }
 
-/* ========= Footer ========= */
-
 footer{
-  margin-top:60px;
-  background:#081529;
-  padding:35px 0;
-  color:white;
+  margin:40px 0 20px;
+  color:#6b6b6b;
 }
 
 </style>
-</head>
 
+</head>
 <body>
 
-<!-- ========= LOGO ========= -->
-
+<!-- LOGO -->
 <section class="logo-hero">
   <div class="hm-logo-box">
-    <img 
-      src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/main/78ABD3F8-E475-41CD-B1B2-E49196B8C291.png?raw=1"
-      alt="Hausmeisterservice Mathias Hornbruch Logo"
-      style="max-width:420px; width:100%; height:auto;"
-    >
+    <img src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/main/78ABD3F8-E475-41CD-B1B2-E49196B8C291.png"
+    style="max-width:420px;width:100%;height:auto;">
     <div class="hm-shine-line"></div>
   </div>
 </section>
 
-
-<!-- ========= BEWERTUNGEN ========= -->
+<!-- BEWERTUNGEN -->
+<div class="review-box">
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="review-text">„Kompetente Beratung — wir fühlten uns gut aufgehoben.“</p>
+  <div class="review-author">– Herr Richter</div>
+</div>
 
 <div class="review-box">
-
-  <div class="review active">
-    <div class="review-stars">★★★★★</div>
-    <div class="review-text">„Kompetente Beratung – wir fühlten uns gut aufgehoben.“</div>
-    <div class="review-author">– Herr Richter</div>
-  </div>
-
-  <div class="review">
-    <div class="review-stars">★★★★☆</div>
-    <div class="review-text">„Zuverlässig, freundlich und schnell — gerne wieder.“</div>
-    <div class="review-author">– Familie Schmidt</div>
-  </div>
-
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="review-text">„Zuverlässig, freundlich und schnell — gerne wieder.“</p>
+  <div class="review-author">– Familie Schmidt</div>
 </div>
 
-<script>
-let reviews = document.querySelectorAll(".review");
-let i = 0;
-setInterval(()=>{
-  reviews[i].classList.remove("active");
-  i = (i + 1) % reviews.length;
-  reviews[i].classList.add("active");
-}, 6000);
-</script>
+<!-- KONTAKT -->
+<section>
+  <h1>Kontakt</h1>
+  <p>Bei Fragen oder Interesse – wir freuen uns auf Ihren Anruf.</p>
 
-
-<!-- ========= KONTAKT ========= -->
-
-<h2>Kontakt</h2>
-<p>Bei Fragen oder Interesse – wir freuen uns auf Ihren Anruf.</p>
-
-<a class="call-btn" href="tel:01602556936">📞 Jetzt anrufen</a>
-
-
-<!-- ========= ÖFFNUNGSZEITEN ========= -->
-
-<div class="hours-box">
-  <h2>Öffnungszeiten</h2>
-
-  <p><b>Mo – Fr:</b> 07:00 – 17:00 Uhr</p>
-  <p><b>Sa:</b> 09:00 – 13:00 Uhr</p>
-  <p><b>So:</b> Geschlossen</p>
-</div>
-
-
-<!-- ========= LEISTUNGEN ========= -->
-
-<section class="services">
-
-  <div class="service-card">
-    <div class="service-emoji">🏠</div>
-    <div class="service-text">
-      Hausmeisterservice — Pflege, Kontrolle & Betreuung von Objekten.
-    </div>
-  </div>
-
-  <div class="service-card">
-    <div class="service-emoji">🌿</div>
-    <div class="service-text">
-      Gartenpflege — Rasen, Hecken, Außenanlagen.
-    </div>
-  </div>
-
-  <div class="service-card">
-    <div class="service-emoji">🌳</div>
-    <div class="service-text">
-      Gartenbau & Zäune — Aufbau, Reparatur & Gestaltung.
-    </div>
-  </div>
-
-  <div class="service-card">
-    <div class="service-emoji">🧺</div>
-    <div class="service-text">
-      Entrümpelung jeder Art — privat & gewerblich.
-    </div>
-  </div>
-
-  <div class="service-card">
-    <div class="service-emoji">🚛</div>
-    <div class="service-text">
-      Entsorgung — Müll & Sperrmüll, fachgerecht & zuverlässig.
-    </div>
-  </div>
-
-  <div class="service-card">
-    <div class="service-emoji">♻️</div>
-    <div class="service-text">
-      Ankauf von Schrott — Abholung möglich.
-    </div>
-  </div>
-
-  <div class="service-card">
-    <div class="service-emoji">🔥</div>
-    <div class="service-text">
-      Verkauf von Brennholz — Lieferung auf Wunsch.
-    </div>
-  </div>
-
-  <div class="service-card">
-    <div class="service-emoji">🚽</div>
-    <div class="service-text">
-      Notdienst — verstopfte Toilette & Abflussprobleme.
-    </div>
-  </div>
-
-  <div class="service-card">
-    <div class="service-emoji">🧹</div>
-    <div class="service-text">
-      Treppenhaus-Reinigung — sauber & zuverlässig.
-    </div>
-  </div>
-
-  <div class="service-card">
-    <div class="service-emoji">🚚</div>
-    <div class="service-text">
-      Umzüge deutschlandweit — Planung, Transport & Aufbau.
-    </div>
-  </div>
-
+  <button class="call-btn">
+    <a href="tel:01602556936">📞 Jetzt anrufen</a>
+  </button>
 </section>
 
+<!-- Öffnungszeiten -->
+<div class="time-box">
+  <strong>Mo – Fr:</strong> 07:00 – 17:00 Uhr<br><br>
+  <strong>Sa:</strong> 09:00 – 13:00 Uhr<br><br>
+  <strong>So:</strong> Geschlossen
+</div>
+
+<!-- DIENSTLEISTUNGEN -->
+<h2 class="services-title">Unsere Leistungen</h2>
+
+<div class="service-card">
+  <div class="service-emoji">🏠</div>
+  <div class="service-text">Hausmeisterservice — Pflege & Betreuung von Objekten.</div>
+</div>
+
+<div class="service-card">
+  <div class="service-emoji">🌿</div>
+  <div class="service-text">Gartenpflege — Rasen mähen, Hecken schneiden, Außenanlagen.</div>
+</div>
+
+<div class="service-card">
+  <div class="service-emoji">🌲</div>
+  <div class="service-text">Gartenbau & Zäune — Aufbau, Reparatur & Gestaltung.</div>
+</div>
+
+<div class="service-card">
+  <div class="service-emoji">🚚</div>
+  <div class="service-text">Umzüge deutschlandweit — Transport & Aufbau am neuen Ort.</div>
+</div>
+
+<div class="service-card">
+  <div class="service-emoji">🔥</div>
+  <div class="service-text">Verkauf von Brennholz — trocken & geliefert.</div>
+</div>
+
+<div class="service-card">
+  <div class="service-emoji">🗑️</div>
+  <div class="service-text">Entrümpelungen & Entsorgung jeder Art.</div>
+</div>
+
+<div class="service-card">
+  <div class="service-emoji">🔧</div>
+  <div class="service-text">Kleine Reparaturen & Ausbesserungen.</div>
+</div>
+
+<div class="service-card">
+  <div class="service-emoji">🚨</div>
+  <div class="service-text">Notdienst — Verstopfte Toilette & akute Probleme.</div>
+</div>
+
+<div class="service-card">
+  <div class="service-emoji">🧹</div>
+  <div class="service-text">Treppenhaus-Reinigung & Objektpflege.</div>
+</div>
 
 <footer>
-  Hausmeisterservice Mathias Hornbruch
+  bloodybitcoin.github.io
 </footer>
 
 </body>
