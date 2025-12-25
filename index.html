@@ -782,3 +782,134 @@ slideArea.addEventListener("touchend", e=>{
   font-size:15px;
 }
 </style>
+<!-- ====================== -->
+<!--   NOTRUF – ROT & PULSE -->
+<!-- ====================== -->
+
+<section class="emergency-wrap">
+
+  <div class="emergency-box">
+
+    <div class="em-icon">🚨</div>
+
+    <h2>NOTDIENST — WIR KOMMEN SOFORT!</h2>
+
+    <p>
+      Rohr verstopft? Wasserschaden? Strom / Tür / Notfall?<br>
+      Wir sind schnell vor Ort — zuverlässig und fair.
+    </p>
+
+    <a href="tel:01602556936" class="em-btn">
+      📞 Sofort anrufen — 0160 255 6936
+    </a>
+
+    <small class="em-note">
+      *Bei Notdienst können Zuschläge anfallen – transparent & vorher abgesprochen.
+    </small>
+
+  </div>
+
+</section>
+
+<style>
+.emergency-wrap{
+  padding:95px 16px;
+  position:relative;
+  overflow:hidden;
+  background:#0b0d12;
+}
+
+/* KRÄFTIGES ROT — GLOW + PULSE */
+.emergency-wrap::before{
+  content:"";
+  position:absolute;
+  inset:-25%;
+  background:radial-gradient(circle,
+    rgba(255,35,35,.9),
+    rgba(255,0,0,.55),
+    transparent 70%);
+  filter:blur(45px);
+  animation:redpulse 4.5s ease-in-out infinite;
+}
+
+@keyframes redpulse{
+  0%{ opacity:.55; transform:scale(.95); }
+  50%{ opacity:1; transform:scale(1.12); }
+  100%{ opacity:.55; transform:scale(.95); }
+}
+
+/* BOX */
+.emergency-box{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+  background:#141b24;
+  border:2px solid rgba(255,80,80,.6);
+  border-radius:24px;
+  padding:42px 20px 34px;
+  box-shadow:
+    0 0 25px rgba(255,60,60,.45),
+    0 25px 60px rgba(0,0,0,.6);
+}
+
+/* leicht roter Innen-Glow */
+.emergency-box::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:24px;
+  box-shadow:inset 0 0 40px rgba(255,40,40,.45);
+  pointer-events:none;
+}
+
+.em-icon{
+  font-size:54px;
+  margin-bottom:6px;
+}
+
+.emergency-box h2{
+  color:#fff;
+  margin:0 0 10px;
+  letter-spacing:.5px;
+}
+
+.emergency-box p{
+  color:#e7e9ec;
+  margin-bottom:24px;
+  line-height:1.45;
+}
+
+/* BUTTON — ROT, LEUCHTEND, PULSE */
+.em-btn{
+  display:inline-block;
+  padding:15px 32px;
+  border-radius:14px;
+  background:#ff2a2a;
+  color:white;
+  font-size:18px;
+  text-decoration:none;
+  box-shadow:
+    0 0 18px rgba(255,40,40,.6),
+    0 14px 28px rgba(255,30,30,.45);
+  animation:btnpulse 2.8s ease-in-out infinite;
+}
+
+@keyframes btnpulse{
+  0%{ transform:scale(1); box-shadow:0 0 15px rgba(255,60,60,.65); }
+  50%{ transform:scale(1.04); box-shadow:0 0 30px rgba(255,60,60,1); }
+  100%{ transform:scale(1); box-shadow:0 0 15px rgba(255,60,60,.65); }
+}
+
+.em-btn:hover{
+  opacity:.95;
+}
+
+.em-note{
+  display:block;
+  margin-top:14px;
+  color:#b8c0d3;
+  font-size:12px;
+}
+</style>
