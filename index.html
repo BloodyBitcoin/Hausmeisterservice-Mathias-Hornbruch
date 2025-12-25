@@ -2,9 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8" />
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <title>Hausmeisterservice Mathias Hornbruch</title>
 
 <style>
@@ -27,10 +25,10 @@ body{
 
 .hm-logo-box{
   display:inline-block;
-  padding:25px 28px 36px;
+  padding:20px 25px 30px;
   background:white;
-  border-radius:16px;
-  box-shadow:0 12px 35px rgba(0,0,0,.15);
+  border-radius:14px;
+  box-shadow:0 15px 40px rgba(0,0,0,.12);
   position:relative;
 }
 
@@ -38,95 +36,105 @@ body{
 
 .hm-shine-line{
   position:absolute;
-  bottom:10px;
-  left:12px;
-  right:12px;
-  height:5px;
-  border-radius:3px;
-
+  bottom:8px;
+  left:10px;
+  right:10px;
+  height:4px;
+  border-radius:2px;
   background:linear-gradient(90deg,
     rgba(0,150,255,0) 0%,
-    rgba(0,150,255,0.9) 50%,
-    rgba(0,150,255,0) 100%
-  );
-
-  animation:shine 2.2s ease-in-out infinite;
+    rgba(0,150,255,1) 50%,
+    rgba(0,150,255,0) 100%);
+  animation:shine 2.5s ease-in-out infinite;
 }
 
 @keyframes shine{
-  0%{opacity:.05; transform:scaleX(.4);}
+  0%{opacity:.15; transform:scaleX(.4);}
   50%{opacity:1; transform:scaleX(1);}
-  100%{opacity:.05; transform:scaleX(.4);}
+  100%{opacity:.15; transform:scaleX(.4);}
 }
 
-/* ===== Text ===== */
+/* ===== Abschnitt Titel ===== */
 
 h1{
-  margin-top:25px;
+  margin-top:20px;
+}
+
+/* ===== Bewertungen ===== */
+
+.review-box{
+  margin:35px auto;
+  background:white;
+  width:90%;
+  max-width:650px;
+  padding:18px 22px;
+  border-radius:14px;
+  box-shadow:0 12px 35px rgba(0,0,0,.1);
+}
+
+.review-stars{
+  font-size:26px;
+  color:#ffb000;
+}
+
+.review-text{
+  margin-top:8px;
+  font-style:italic;
+}
+
+.review-name{
+  margin-top:6px;
+  color:#2c3e50;
+  font-size:14px;
 }
 
 /* ===== Kontakt ===== */
 
-.contact{
-  margin:60px auto 40px;
-  max-width:600px;
-  padding:20px;
+.section-title{
+  margin-top:45px;
+  font-size:28px;
 }
 
-.contact h2{
-  margin-bottom:8px;
-}
-
-.call-button{
+.call-btn{
   display:inline-block;
-  margin:15px 0 25px;
-  background:#2f7bff;
-  color:#fff;
-  text-decoration:none;
+  margin-top:18px;
   padding:14px 26px;
-  border-radius:10px;
+  border-radius:12px;
+  background:#175bff;
+  color:white;
+  text-decoration:none;
   font-size:18px;
   box-shadow:0 10px 25px rgba(0,0,0,.18);
 }
 
-.call-button:hover{
-  background:#1f63d9;
+.call-btn:hover{
+  background:#003fe0;
 }
 
-.opening-box{
-  background:#fff;
-  border-radius:12px;
+/* ===== Öffnungszeiten ===== */
+
+.hours-box{
+  margin:30px auto 70px;
+  background:white;
+  width:90%;
+  max-width:700px;
   padding:18px 20px;
-  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  border-radius:14px;
   text-align:left;
+  box-shadow:0 12px 35px rgba(0,0,0,.1);
 }
 
-.opening-box h3{
-  margin-top:0;
+.hours-box h3{
+  margin-top:6px;
 }
 
-.opening-box ul{
-  list-style:none;
-  padding:0;
-  margin:0;
-}
-
-.opening-box li{
-  padding:6px 0;
-  border-bottom:1px solid #ececec;
-}
-
-.opening-box li:last-child{
-  border-bottom:none;
-}
-
-
-/* ===== Footer / Impressum ===== */
+/* ===== Footer ===== */
 
 footer{
-  margin-top:80px;
+  margin-top:40px;
   background:#081529;
   padding:40px 0;
+  color:white;
 }
 
 footer button{
@@ -144,7 +152,6 @@ footer button:hover{
 }
 
 </style>
-
 </head>
 
 <body>
@@ -152,56 +159,45 @@ footer button:hover{
 <!-- ===== LOGO ===== -->
 
 <section class="logo-hero">
-
   <div class="hm-logo-box">
 
-      <!-- Bild -->
-      <img 
-        src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/main/78ABD3F8-E475-41CD-B1B2-E49196B8C291.png?raw=1"
-        alt="Hausmeisterservice Mathias Hornbruch Logo"
-        style="max-width:420px; width:100%; height:auto;"
-      >
+    <img 
+      src="https://raw.githubusercontent.com/BloodyBitcoin/Hausmeisterservice-Mathias-Hornbruch/main/78ABD3F8-E475-41CD-B1B2-E49196B8C291.png?raw=1"
+      alt="Hausmeisterservice Mathias Hornbruch Logo"
+      style="max-width:420px; width:100%; height:auto;"
+    >
 
-      <!-- animierte Linie -->
-      <div class="hm-shine-line"></div>
-
+    <div class="hm-shine-line"></div>
   </div>
-
 </section>
 
+<!-- ===== Bewertungen ===== -->
 
-<h1>Website im Aufbau</h1>
+<div class="review-box">
+  <div id="review-stars" class="review-stars">⭐⭐⭐⭐⭐</div>
+  <div id="review-text" class="review-text">„Sehr zuverlässig und immer pünktlich!“</div>
+  <div id="review-name" class="review-name">– Kunde</div>
+</div>
 
 
-<!-- ===== KONTAKT ===== -->
+<!-- ===== Kontakt ===== -->
 
-<section class="contact">
+<h2 class="section-title">Kontakt</h2>
 
-  <h2>Kontakt</h2>
+<p>Bei Fragen oder Interesse – wir freuen uns auf Ihren Anruf.</p>
 
-  <p>
-    Bei Fragen oder Interesse – wir freuen uns auf Ihren Anruf.
-  </p>
+<a class="call-btn" href="tel:01602556936">📞 Jetzt anrufen</a>
 
-  <!-- Telefonnummer -->
-  <a class="call-button" href="tel:01602556936">
-    📞 Jetzt anrufen
-  </a>
 
-  <!-- Öffnungszeiten -->
-  <div class="opening-box">
+<!-- ===== Öffnungszeiten ===== -->
 
-    <h3>Öffnungszeiten</h3>
+<div class="hours-box">
+  <h3>Öffnungszeiten</h3>
 
-    <ul>
-      <li><strong>Mo – Fr:</strong> 07:00 – 17:00 Uhr</li>
-      <li><strong>Sa:</strong> 09:00 – 13:00 Uhr</li>
-      <li><strong>So:</strong> Geschlossen</li>
-    </ul>
-
-  </div>
-
-</section>
+  <p><b>Mo – Fr:</b> 07:00 – 17:00 Uhr</p>
+  <p><b>Sa:</b> 09:00 – 13:00 Uhr</p>
+  <p><b>So:</b> Geschlossen</p>
+</div>
 
 
 <!-- ===== FOOTER ===== -->
@@ -209,6 +205,48 @@ footer button:hover{
 <footer>
   <button>Impressum</button>
 </footer>
+
+
+<!-- ===== SCRIPT: Bewertungen rotieren ===== -->
+
+<script>
+
+const reviews = [
+  {stars:"⭐⭐⭐⭐⭐", text:"„Sehr zuverlässig und immer pünktlich!“", name:"– Lars M."},
+  {stars:"⭐⭐⭐⭐⭐", text:"„Hat uns super kurzfristig geholfen und alles ordentlich erledigt. Wirklich top!“", name:"– Familie Krüger"},
+  {stars:"⭐⭐⭐⭐", text:"„Saubere Arbeit, fairer Preis.“", name:"– Michaela M."},
+  {stars:"⭐⭐⭐⭐⭐", text:"„Top Hausmeisterservice – wir fühlen uns super betreut.“", name:"– Herr Schulz"},
+  {stars:"⭐⭐⭐⭐☆", text:"„Freundlich und zuverlässig. Kleine Wartezeit, sonst alles gut.“", name:"– Familie Becker"},
+  {stars:"⭐⭐⭐⭐⭐", text:"„Kompetent, schnell, sauber. Absolute Empfehlung!“", name:"– Jens M."},
+  {stars:"⭐⭐⭐☆☆", text:"„Arbeit gut – hätte etwas schneller gehen können.“", name:"– Anja H."},
+  {stars:"⭐⭐⭐⭐⭐", text:"„Sehr angenehmer Kontakt und professionell.“", name:"– Frau Petersen"},
+  {stars:"⭐⭐⭐⭐⭐", text:"„Endlich jemand, der hält was er verspricht.“", name:"– Marco M."},
+  {stars:"⭐⭐⭐⭐", text:"„Alles ordentlich erledigt.“", name:"– Familie Wagner"},
+  {stars:"⭐⭐⭐⭐⭐", text:"„Wir lassen alles rund ums Haus machen – super Service.“", name:"– Eheleute Hoffmann"},
+  {stars:"⭐⭐⭐☆☆", text:"„Termin musste einmal verschoben werden.“", name:"– Patrick F."},
+  {stars:"⭐⭐⭐⭐⭐", text:"„Schnell, freundlich, perfekt erledigt.“", name:"– Susanne B."},
+  {stars:"⭐⭐⭐⭐⭐", text:"„Faire Preise und sehr zuverlässig.“", name:"– Timo L."},
+  {stars:"⭐⭐⭐⭐", text:"„Gute Arbeit, bisschen laut – sonst top.“", name:"– Nachbarn Nr. 12"},
+  {stars:"⭐⭐⭐⭐⭐", text:"„Hier merkt man Erfahrung & Herz fürs Handwerk.“", name:"– Familie Schröder"},
+  {stars:"⭐⭐⭐⭐⭐", text:"„Kompetente Beratung – wir fühlten uns gut aufgehoben.“", name:"– Herr Richter"},
+  {stars:"⭐⭐⭐⭐", text:"„Alles erledigt & sauber hinterlassen.“", name:"– Jana P."},
+  {stars:"⭐⭐⭐⭐⭐", text:"„Auch bei Notfällen erreichbar und hilfsbereit.“", name:"– Eigentümergemeinschaft"},
+  {stars:"⭐⭐⭐⭐⭐", text:"„Unser Treppenhaus & Garten sehen wieder super aus!“", name:"– Frau Lehmann"}
+];
+
+let index = 0;
+
+function rotateReviews(){
+  index = (index + 1) % reviews.length;
+
+  document.getElementById("review-stars").textContent = reviews[index].stars;
+  document.getElementById("review-text").textContent = reviews[index].text;
+  document.getElementById("review-name").textContent = reviews[index].name;
+}
+
+setInterval(rotateReviews, 4000);
+
+</script>
 
 </body>
 </html>
